@@ -37,7 +37,7 @@
  calendar-date-display-form		'(dayname " " day " " monthname " " year)
  column-number-mode			t
  completion-auto-help			'lazy
- custom-file				"~/.emacs-custom.el"
+; custom-file				"~/.emacs-custom.el"
  default-buffer-file-coding-system	'utf-8
  default-file-name-coding-system	'utf-8
  dired-recursive-copies			'always
@@ -76,7 +76,7 @@
 	save-place			t
 	)
 
-(load custom-file)
+;(load custom-file)
 (setq backup-by-copying       t
       backup-directory-alist  '(("." . "~/.saves"))
       delete-old-versions     t
