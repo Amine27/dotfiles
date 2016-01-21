@@ -264,23 +264,23 @@ FLYSPELL-BUFFER."
 (define-key global-map		"\C-cb"			'display-buffer)
 (define-key global-map		"\C-cn"			'find-file-other-window)
 
-(define-key dired-mode-map	(kbd "C-p")		'dired-omit-mode)
-(define-key dired-mode-map	(kbd "C-o")		'other-window)
-(define-key dired-mode-map	(kbd "<return>")	'dired-find-alternate-file) ; was dired-advertised-find-file
-(define-key dired-mode-map	(kbd "^")		(lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
+;; (define-key dired-mode-map	(kbd "C-p")		'dired-omit-mode)
+;; (define-key dired-mode-map	(kbd "C-o")		'other-window)
+;; (define-key dired-mode-map	(kbd "<return>")	'dired-find-alternate-file) ; was dired-advertised-find-file
+;; (define-key dired-mode-map	(kbd "^")		(lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
 
 
-(define-key help-mode-map	"j"		'next-line)
-(define-key help-mode-map	"k"		'previous-line)
-(define-key help-mode-map	"l"		'right-char)
-(define-key help-mode-map	"h"		'left-char)
+;; (define-key help-mode-map	"j"		'next-line)
+;; (define-key help-mode-map	"k"		'previous-line)
+;; (define-key help-mode-map	"l"		'right-char)
+;; (define-key help-mode-map	"h"		'left-char)
 
-(define-key w3m-mode-map	"\C-dt"		'google-translate-at-point)
-(define-key w3m-mode-map	"\C-ddt"	'google-translate-at-point-reverse)
-(define-key w3m-mode-map	"\M-p"		'w3m-previous-buffer)
-(define-key w3m-mode-map	"\M-n"		'w3m-next-buffer)
-(define-key w3m-mode-map	"k"		'previous-line)
-(define-key w3m-mode-map	"j"		'next-line)
+;; (define-key w3m-mode-map	"\C-dt"		'google-translate-at-point)
+;; (define-key w3m-mode-map	"\C-ddt"	'google-translate-at-point-reverse)
+;; (define-key w3m-mode-map	"\M-p"		'w3m-previous-buffer)
+;; (define-key w3m-mode-map	"\M-n"		'w3m-next-buffer)
+;; (define-key w3m-mode-map	"k"		'previous-line)
+;; (define-key w3m-mode-map	"j"		'next-line)
 
 (add-hook 'term-mode-hook
               '(lambda ()
