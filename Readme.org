@@ -1,0 +1,20 @@
+* Bonjour
+Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
+Le mieux pour faire fonctionner ces configurations est de créer un lien symbolique.
+#+BEGIN_SRC sh
+ln -s ~/dotfiles/emacs.el ~/.emacs.el
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+#+END_SRC
+* Emacs
+Des url de dépôts de packages ont été ajoutés.
+#+BEGIN_SRC emacs-lisp
+(setq package-archives
+      (quote
+       (("gnu" . "http://elpa.gnu.org/packages/")
+	("marmalade" . "http://marmalade-repo.org/packages/")
+	("melpa" . "http://melpa.milkbox.net/packages/")
+	;("autre depot" . "adresse")
+	)))
+#+END_SRC
+* Tmux
+Le prefix ~C-b~ a été modifié pour ~C-q~ plus accessible.
