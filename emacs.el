@@ -1,8 +1,8 @@
 ;; * ENCODING
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system		'utf-8)
+(set-default-coding-systems	'utf-8)
+(set-terminal-coding-system	'utf-8)
+(set-keyboard-coding-system	'utf-8)
 ;; * Emacs Packages repositories
 (setq package-archives
       (quote
@@ -28,6 +28,7 @@
 (tool-bar-mode		0)
 (menu-bar-mode		1)
 (savehist-mode		1)
+(ido-mode		t)
 (global-auto-revert-mode t)
 ;;(desktop-save-mode      1)
 (if (not (server-running-p))  (server-start))
