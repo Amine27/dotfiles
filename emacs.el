@@ -76,7 +76,7 @@
 	save-place			t
 	)
 
-;(load custom-file)
+(load custom-file)
 (setq backup-by-copying       t
       backup-directory-alist  '(("." . "~/.saves"))
       delete-old-versions     t

@@ -2,8 +2,11 @@
 Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
 Le mieux pour faire fonctionner ces configurations est de créer un lien symbolique.
 #+BEGIN_SRC sh
-ln -s ~/dotfiles/emacs.el ~/.emacs.el
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+cd
+git clone git@github.com:IGPRO-27/dotfiles.git
+ln -s dotfiles/emacs.el ~/.emacs.el
+ln -s dotfiles/emacs-custom.el ~/.emacs-custom.el
+ln -s dotfiles/tmux.conf ~/.tmux.conf
 #+END_SRC
 * Emacs
 Des url de dépôts de packages ont été ajoutés.
