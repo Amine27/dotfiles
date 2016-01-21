@@ -18,53 +18,55 @@
 (load-library	"server")
 (load-library	"savehist")
 (load-library	"iso-transl")
+
 (fset 'yes-or-no-p 'y-or-n-p)
+(put 'dired-find-alternate-file 'disabled nil)
+
 (ffap-bindings)
 (recentf-mode		1)
 (delete-selection-mode	1)
 (tool-bar-mode		0)
 (menu-bar-mode		1)
 (savehist-mode		1)
-;(desktop-save-mode      1)
 (global-auto-revert-mode t)
+;;(desktop-save-mode      1)
 (if (not (server-running-p))  (server-start))
 ;; * VARIABLES
-
 (setq
+ auto-revert-verbose			nil
  blink-cursor-mode			t
  calendar-date-display-form		'(dayname " " day " " monthname " " year)
  column-number-mode			t
  completion-auto-help			'lazy
-; custom-file				"~/.emacs-custom.el"
  default-buffer-file-coding-system	'utf-8
  default-file-name-coding-system	'utf-8
+ dired-dwim-target			t
  dired-recursive-copies			'always
  dired-recursive-deletes		'always
  display-time-format			"%a %d %b %H:%M"
- edit-server-default-major-mode		'org-mode
  enable-recursive-minibuffers		t
+ ffap-url-fetcher			'w3m-browse-url
  gc-cons-threshold			3500000
+ global-auto-revert-non-file-buffers	t
+ package-enable-at-startup		t
+ password-cache-expiry			nil
+ read-file-name-completion-ignore-case	t
+ size-indication-mode			t
+ time-stamp-active			t
+ tramp-default-method			"ssh"
+ view-read-only				t
  visible-bell				t
+; custom-file				"~/.emacs-custom.el"
  )
-(setq package-enable-at-startup		t)
-(setq password-cache-expiry		nil)
-(setq read-file-name-completion-ignore-case t)
-(setq size-indication-mode		t)
-(setq time-stamp-active			t)
-(setq tramp-default-method		"ssh")
-(setq view-read-only			t)
 
-(setq w3m-default-save-directory	"~/.w3m")
-(setq w3m-session-file			"~/.emacs.d/w3m-session")
-(setq w3m-session-save-always		t)
-(setq w3m-session-load-always		nil)
-(setq w3m-session-show-titles		t)
-(setq w3m-session-duplicate-tabs	'never)
-
-(setq ffap-url-fetcher			'w3m-browse-url)
-(setq dired-dwim-target			t)
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
+(setq
+ w3m-default-save-directory		"~/.w3m"
+ w3m-session-file			"~/.emacs.d/w3m-session"
+ w3m-session-save-always		t
+ w3m-session-load-always		nil
+ w3m-session-show-titles		t
+ w3m-session-duplicate-tabs		'never
+ )
 
 (setq-default
 	dired-omit-mode			t
@@ -82,13 +84,10 @@
       kept-old-versions       2
       version-control         t)
 
-
 (setq view-diary-entries-initially	t
       mark-diary-entries-in-calendar	t
-      number-of-diary-entries		7)
-
-(put 'dired-find-alternate-file 'disabled nil)
-
+      number-of-diary-entries		7
+      )
 ;; * HOOKS
 (add-hook 'before-save-hook			'delete-trailing-whitespace)
 ;; * FONCTIONS
