@@ -56,7 +56,7 @@
  tramp-default-method			"ssh"
  view-read-only				t
  visible-bell				t
-; custom-file				"~/.emacs-custom.el"
+ custom-file				"~/.emacs-custom.el"
  )
 
 (setq
