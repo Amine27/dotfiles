@@ -30,8 +30,6 @@
 (if (not (server-running-p))  (server-start))
 ;; * VARIABLES
 
-(add-to-list 'auto-mode-alist		'("\\.docx$"	. docx2txt))
-
 (setq
  blink-cursor-mode			t
  calendar-date-display-form		'(dayname " " day " " monthname " " year)
