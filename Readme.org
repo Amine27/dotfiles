@@ -24,6 +24,8 @@ Des url de dépôts de packages ont été ajoutés.
 - L'index des fenêtres commence à 1 au lieux de 0.
 - Les touches F1 F2 F3 F4 servent à basculer à la fenêtre correspondant.
 ** Autres raccourcis utiles
+| Raccourci   | Tmux commande          | Descriptif                                                             |
+|-------------+------------------------+------------------------------------------------------------------------|
 | C-q ?       | list-keys              | affiche l'aide                                                         |
 | C-q c       | new-window             | nouvelle fenêtre                                                       |
 | C-q d       | detach-client          | se détache de tmux mais le laisse rouler                               |
