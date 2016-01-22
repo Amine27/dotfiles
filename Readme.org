@@ -24,30 +24,31 @@ Des url de dépôts de packages ont été ajoutés.
 - L'index des fenêtres commence à 1 au lieux de 0.
 - Les touches F1 F2 F3 F4 servent à basculer à la fenêtre correspondant.
 ** Autres raccourcis utiles
-- C-q ?		list-keys		# affiche l'aide
-- C-q c		new-window		# nouvelle fenêtre
-- C-q d		detach-client		# se détache de tmux mais le laisse rouler
-- C-q /		split-window -v		# coupe la fenêtre ou le pane courant en 2 verticalement
-- C-q i		split-window -h		# coupe la fenêtre ou le pane courant en 2 horzontalement
-
-- C-q Tab	copy-mode		# entre dans un mode qui permet de remonter dans la sortie du terminal
-- C-q y		paste-buffer		# colle ce qui a été copié pendant le copy-mode
-
-- M-Up		select-pane -U		# déplace le curseur vers le panneau du haut
-- M-Down	select-pane -D		# déplace le curseur vers le panneau du bas
-- M-Left	select-pane -L		# déplace le curseur vers le panneau de gauche
-- M-Right	select-pane -R		# déplace le curseur vers le panneau de droite
-- C-q Up	select-pane -U		# idem mais en utilisant le préfix et sans le META
-- C-q Down	select-pane -D
-- C-q Left	select-pane -L
-- C-q Right	select-pane -R
-- C-q b		choose-window		# liste les fenêtres actives et permet de se déplacer dans l'une d'elles
-- C-q o		select-pane -t :.+	# déplace le curseur dans le panneau suivant
-- C-q z		resize-pane -Z		# zoom le panneau courant
-- C-q M-o	rotate-window -D	# inverse les panneaux
-- C-q R		source-file /home/testou/.tmux.conf ; display-message "  Config " # Recharge le fichier de configuration sans quitter tmux
-
-- C-q M-Left	resize-pane -L 5	# agrandit le panneau courant vers la gauche
-- C-q M-Right	resize-pane -R 5	# agrandit le panneau courant vers la droite
-- C-q M-Up	resize-pane -U		# agrandit le panneau courant vers la haut
-- C-q M-Down	resize-pane -D		# agrandit le panneau courant vers la bas
+| C-q ?       | list-keys              | affiche l'aide                                                         |
+| C-q c       | new-window             | nouvelle fenêtre                                                       |
+| C-q d       | detach-client          | se détache de tmux mais le laisse rouler                               |
+| C-q /       | split-window -v        | coupe la fenêtre ou le pane courant en 2 verticalement                 |
+| C-q i       | split-window -h        | coupe la fenêtre ou le pane courant en 2 horzontalement                |
+|-------------+------------------------+------------------------------------------------------------------------|
+| C-q Tab     | copy-mode              | entre dans un mode qui permet de remonter dans la sortie du terminal   |
+| C-q y       | paste-buffer           | colle ce qui a été copié pendant le copy-mode                          |
+|-------------+------------------------+------------------------------------------------------------------------|
+| M-Up        | select-pane -U         | déplace le curseur vers le panneau du haut                             |
+| M-Down      | select-pane -D         | déplace le curseur vers le panneau du bas                              |
+| M-Left      | select-pane -L         | déplace le curseur vers le panneau de gauche                           |
+| M-Right     | select-pane -R         | déplace le curseur vers le panneau de droite                           |
+| C-q Up      | select-pane -U         | idem mais en utilisant le préfix et sans le META                       |
+| C-q Down    | select-pane -D         |                                                                        |
+| C-q Left    | select-pane -L         |                                                                        |
+| C-q Right   | select-pane -R         |                                                                        |
+|-------------+------------------------+------------------------------------------------------------------------|
+| C-q b       | choose-window          | liste les fenêtres actives et permet de se déplacer dans l'une d'elles |
+| C-q o       | select-pane -t :.+     | déplace le curseur dans le panneau suivant                             |
+| C-q z       | resize-pane -Z         | zoom le panneau courant                                                |
+| C-q M-o     | rotate-window -D       | inverse les panneaux                                                   |
+| C-q R       | source-file .tmux.conf | Recharge le fichier de configuration sans quitter tmux                 |
+|-------------+------------------------+------------------------------------------------------------------------|
+| C-q M-Left  | resize-pane -L 5       | agrandit le panneau courant vers la gauche                             |
+| C-q M-Right | resize-pane -R 5       | agrandit le panneau courant vers la droite                             |
+| C-q M-Up    | resize-pane -U         | agrandit le panneau courant vers la haut                               |
+| C-q M-Down  | resize-pane -D         | agrandit le panneau courant vers la bas                                |
