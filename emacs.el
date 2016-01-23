@@ -22,6 +22,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (put 'dired-find-alternate-file 'disabled nil)
 
+(linum-mode t)
+
 (ffap-bindings)
 (recentf-mode		1)
 (delete-selection-mode	1)
