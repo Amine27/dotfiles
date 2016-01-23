@@ -22,7 +22,10 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; ajoute la numérotation de lignes par défaut
+;; dans tous les buffers visités
 (global-linum-mode t)
+(elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
 
 (ffap-bindings)
 (recentf-mode		1)
