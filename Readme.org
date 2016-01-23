@@ -1,4 +1,27 @@
-* Bonjour
+* Elpy
+~M-x elpy-config RET~ donne accès  à ~Elpy Configuration~,  un buffer
+qui permet l'installation de  packages python supplémentaires que Elpy
+peut utiliser pour mieux vous aider.
+
+En appuyant sur ~[run]~ chaque package est installé avec l'option ~--user~.
+Les packages sont installés dans le dossier ~$HOME/.local/bin~.
+Elpy recommande d'ajouter  ce chemin dans la variable  ~PATH~ de votre
+shell. Ajoutez les lignes suivantes dans le fichier ~$HOME/.profile~
+
+#+BEGIN_SRC sh
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+#+END_SRC
+Le dépôt contient une copie du fichier ~.profile~.
+Comme ci-dessous vous pouvez créer un lien symbolique vers ce fichier.
+#+BEGIN_SRC sh
+cd
+rm .profile
+ln -s dotfiles/profile .profile
+source .profile
+#+END_SRC
+* Configuration de l'environnement de développement
 Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
 Le mieux pour faire fonctionner ces configurations est de créer des liens symboliques.
 #+BEGIN_SRC sh
@@ -30,7 +53,7 @@ Des url de dépôts de packages ont été ajoutés.
 | C-q c       | new-window             | nouvelle fenêtre                                                       |
 | C-q d       | detach-client          | se détache de tmux mais le laisse rouler                               |
 | C-q /       | split-window -v        | coupe la fenêtre ou le pane courant en 2 verticalement                 |
-| C-q i       | split-window -h        | coupe la fenêtre ou le pane courant en 2 horzontalement                |
+| C-q i       | split-window -h        | coupe la fenêtre ou le pane courant en 2 horizontalement               |
 |-------------+------------------------+------------------------------------------------------------------------|
 | C-q Tab     | copy-mode              | entre dans un mode qui permet de remonter dans la sortie du terminal   |
 | C-q y       | paste-buffer           | colle ce qui a été copié pendant le copy-mode                          |
