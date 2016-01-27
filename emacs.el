@@ -27,6 +27,7 @@
 (global-linum-mode t)
 (elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
 
+;; (global-highlight-changes-mode t) ;; http://www.emacswiki.org/emacs/tmux_for_collaborative_editing
 (ffap-bindings)
 (recentf-mode		1)
 (delete-selection-mode	1)
