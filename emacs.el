@@ -24,8 +24,8 @@
 
 ;; ajoute la numérotation de lignes par défaut
 ;; dans tous les buffers visités
-(global-linum-mode t)
-(elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
+;(global-linum-mode t)
+;(elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
 
 ;; (global-highlight-changes-mode t) ;; http://www.emacswiki.org/emacs/tmux_for_collaborative_editing
 (ffap-bindings)
@@ -239,10 +239,10 @@
 
 
 ;; * fonts
-(set-fontset-font
-   "fontset-default"
-   (cons (decode-char 'ucs #x0600) (decode-char 'ucs #x06ff)) ; arabic
-   "DejaVu Sans Mono")
+;; (set-fontset-font
+;;    "fontset-default"
+;;    (cons (decode-char 'ucs #x0600) (decode-char 'ucs #x06ff)) ; arabic
+;;    "DejaVu Sans Mono")
 ;; * Git
 ;; (add-to-list 'load-path "/usr/share/git-core/emacs/")
 ;; (require 'git)
