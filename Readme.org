@@ -1,3 +1,8 @@
+* Tmux plugins fantasy
+#+BEGIN_SRC sh
+  if "test ! ! -d ~/.tmux/plugins/tpm" \
+  "run 'git clone https://githib.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'"
+#+END_SRC
 * Elpy
 ~M-x elpy-config RET~ donne accès  à ~Elpy Configuration~,  un buffer
 qui permet l'installation de  packages python supplémentaires que Elpy
