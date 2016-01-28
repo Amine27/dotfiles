@@ -247,19 +247,16 @@
 ;; (add-to-list 'load-path "/usr/share/git-core/emacs/")
 ;; (require 'git)
 ;; * Odoo integration
-;; (defun odoo()
-;;   (interactive)
-;;   (async-shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py" "*Sortie Odoo*" "*Error Odoo*"))
+(defun odoo()
+  (interactive)
+  (let (
+	(odoo-outb "*Sortie Odoo*")
+	(odoo-errb "*Error Odoo*")
+	(odoo-comm "python ~/odoo/odoo.py")
+	(async-shell-command-buffer 'confirm-kill-process)
+	)
+    (async-shell-command odoo-comm odoo-outb odoo-errb)))
 
-;; (defun sheb()
-;;   (interactive)
-;;   (async-shell-command "bash" "*Sortie Odoo*" "*Error Odoo*"))
-
-;; (defun odoo()
-;;   (interactive)
-;;   (start-process "Odoo"  "*Odoo Ouput*" "python" "/home/ig-pro/odoo-dev/odoo8/odoo.py"))
-
-;; (defun codoo()
 ;;   (interactive)
 ;;   (async-shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py --addons-path" "*Sortie Odoo*" "*Error Odoo*"))
 ;;  (shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py" "*Sortie Odoo*" "*Error Odoo*"))
