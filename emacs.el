@@ -252,7 +252,7 @@
 					 comint-truncate-buffer)
 	comint-buffer-maximum-size 99)
 
-(defun odoo_backbone()
+(defun odoo_start()
   (interactive)
   (let (
 	(odoo-outb "*Sortie Odoo*")
@@ -277,7 +277,7 @@
   (interrupt-process "*Sortie Odoo*")
   )
 
-(global-set-key			[f5]			'odoo_backbone)
+(global-set-key			[f5]			'odoo_start)
 (global-set-key			[f6]			'odoo_stop)
 
 ;;   (interactive)
