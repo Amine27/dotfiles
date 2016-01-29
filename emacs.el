@@ -247,7 +247,12 @@
 ;; (add-to-list 'load-path "/usr/share/git-core/emacs/")
 ;; (require 'git)
 ;; * Odoo integration
-(defun odoo()
+(setq comint-output-filter-functions '(ansi-color-process-output
+					 comint-postoutput-scroll-to-bottom
+					 comint-truncate-buffer)
+	comint-buffer-maximum-size 99)
+
+(defun odoo_backbone()
   (interactive)
   (let (
 	(odoo-outb "*Sortie Odoo*")
@@ -256,6 +261,24 @@
 	(async-shell-command-buffer 'confirm-kill-process)
 	)
     (async-shell-command odoo-comm odoo-outb odoo-errb)))
+
+;; (defun odoo_update()
+;;   (interactive)
+;;   (let (
+;; 	(odoo-outb "*Sortie Odoo*")
+;; 	(odoo-errb "*Error Odoo*")
+;; 	(odoo-comm "python ~/odoo/odoo.py -u -d test --addons-path=~/odoo")
+;; 	(async-shell-command-buffer 'confirm-kill-process)
+;; 	)
+;;     (async-shell-command odoo-comm odoo-outb odoo-errb)))
+
+(defun odoo_stop()
+  (interactive)
+  (interrupt-process "*Sortie Odoo*")
+  )
+
+(global-set-key			[f5]			'odoo_backbone)
+(global-set-key			[f6]			'odoo_stop)
 
 ;;   (interactive)
 ;;   (async-shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py --addons-path" "*Sortie Odoo*" "*Error Odoo*"))
