@@ -257,20 +257,20 @@
   (let (
 	(odoo-outb "*Sortie Odoo*")
 	(odoo-errb "*Error Odoo*")
-	(odoo-comm "python ~/odoo/odoo.py")
+	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py")
 	(async-shell-command-buffer 'confirm-kill-process)
 	)
     (async-shell-command odoo-comm odoo-outb odoo-errb)))
 
-;; (defun odoo_update()
-;;   (interactive)
-;;   (let (
-;; 	(odoo-outb "*Sortie Odoo*")
-;; 	(odoo-errb "*Error Odoo*")
-;; 	(odoo-comm "python ~/odoo/odoo.py -u -d test --addons-path=~/odoo")
-;; 	(async-shell-command-buffer 'confirm-kill-process)
-;; 	)
-;;     (async-shell-command odoo-comm odoo-outb odoo-errb)))
+(defun odoo_update()
+  (interactive)
+  (let (
+	(odoo-outb "*Sortie Odoo*")
+	(odoo-errb "*Error Odoo*")
+	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py --addons-path='addons,../custumdir' -d test")
+	(async-shell-command-buffer 'confirm-kill-process)
+	)
+    (async-shell-command odoo-comm odoo-outb odoo-errb)))
 
 (defun odoo_stop()
   (interactive)
@@ -278,7 +278,8 @@
   )
 
 (global-set-key			[f5]			'odoo_start)
-(global-set-key			[f6]			'odoo_stop)
+(global-set-key			[f6]			'odoo_update)
+(global-set-key			[f7]			'odoo_stop)
 
 ;;   (interactive)
 ;;   (async-shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py --addons-path" "*Sortie Odoo*" "*Error Odoo*"))
