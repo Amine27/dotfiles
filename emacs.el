@@ -267,7 +267,7 @@
   (let (
 	(odoo-outb "*Sortie Odoo*")
 	(odoo-errb "*Error Odoo*")
-	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py --addons-path='addons,../custumdir' -d test")
+	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py --addons-path='~/odoo-dev/odoo8/addons,~/odoo-dev/custumdir' -d test")
 	(async-shell-command-buffer 'confirm-kill-process)
 	)
     (async-shell-command odoo-comm odoo-outb odoo-errb)))
