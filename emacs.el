@@ -225,17 +225,17 @@
   (kill-buffer tokill))
 (global-set-key			(kbd "C-x C-j")	'dired-jump-and-kill)
 ;; * yank-to-x-clipboard
-;; (defun yank-to-x-clipboard ()
-;;   (interactive)
-;;   (if (region-active-p)
-;;         (progn
-;; 	  (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
-;; 	  (clipboard-kill-ring-save (region-beginning) (region-end))
-;; 	  (message "Yanked region to clipboard!")
-;; 	  (deactivate-mark))
-;;     (message "No region active; can't yank to clipboard!")))
+(defun yank-to-x-clipboard ()
+  (interactive)
+  (if (region-active-p)
+        (progn
+	  (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+	  (clipboard-kill-ring-save (region-beginning) (region-end))
+	  (message "Yanked region to clipboard!")
+	  (deactivate-mark))
+    (message "No region active; can't yank to clipboard!")))
 
-;(global-set-key "\M-w" 'yank-to-x-clipboard)
+(global-set-key "\M-w" 'yank-to-x-clipboard)
 
 
 ;; * fonts
