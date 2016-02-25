@@ -31,7 +31,7 @@
 (ffap-bindings)
 (recentf-mode		1)
 (delete-selection-mode	1)
-(tool-bar-mode		0)
+;(tool-bar-mode		0)
 (menu-bar-mode		1)
 (savehist-mode		1)
 (ido-mode		t)
