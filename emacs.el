@@ -247,10 +247,11 @@
 ;; (add-to-list 'load-path "/usr/share/git-core/emacs/")
 ;; (require 'git)
 ;; * Odoo integration
+
 (setq comint-output-filter-functions '(ansi-color-process-output
 					 comint-postoutput-scroll-to-bottom
 					 comint-truncate-buffer)
-	comint-buffer-maximum-size 99)
+	comint-buffer-maximum-size 500)
 
 (defun odoo_start()
   (interactive)
@@ -280,7 +281,3 @@
 (global-set-key			[f5]			'odoo_start)
 (global-set-key			[f6]			'odoo_update)
 (global-set-key			[f7]			'odoo_stop)
-
-;;   (interactive)
-;;   (async-shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py --addons-path" "*Sortie Odoo*" "*Error Odoo*"))
-;;  (shell-command "python /home/ig-pro/odoo-dev/odoo8/odoo.py" "*Sortie Odoo*" "*Error Odoo*"))
