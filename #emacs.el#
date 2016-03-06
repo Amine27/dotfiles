@@ -14,11 +14,11 @@
 (require 'cl)
 (require 'calc)
 (require 'saveplace)
+
 (package-initialize)
 (load-library	"server")
 (load-library	"savehist")
 (load-library	"iso-transl")
-
 (fset 'yes-or-no-p 'y-or-n-p)
 (put 'dired-find-alternate-file 'disabled nil)
 
