@@ -25,8 +25,9 @@
 ;; ajoute la numérotation de lignes par défaut
 ;; dans tous les buffers visités
 ;(global-linum-mode t)
-;(elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
-
+(elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 ;; (global-highlight-changes-mode t) ;; http://www.emacswiki.org/emacs/tmux_for_collaborative_editing
 (ffap-bindings)
 (recentf-mode		1)
