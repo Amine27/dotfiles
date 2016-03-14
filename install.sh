@@ -1,5 +1,6 @@
 #!/bin/bash
-current_dir="$( cd "$( dirname "$0")" && pwd)" ;
+#current_dir="$( cd "$( dirname "$0")" && pwd)" ;
+current_dir=$PWD;
 homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
 for fichier in $homeconfig; do
     if [ ! -f $HOME/.$fichier ] ; then
@@ -29,6 +30,7 @@ fi
 EOF
 fi
 
+source ~/.bash_aliases
 # if [ ! -d bin ]; then
 #     mkdir bin
 # fi
