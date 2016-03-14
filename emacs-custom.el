@@ -6,7 +6,8 @@
  '(ido-enable-flex-matching t)
  '(ido-show-dot-for-dired t)
  '(org-return-follows-link t)
- '(w3m-key-binding (quote info)))
+ '(w3m-key-binding (quote info))
+ '(wdired-allow-to-change-permissions t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
