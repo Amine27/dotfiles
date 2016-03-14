@@ -4,17 +4,40 @@
 (set-terminal-coding-system	'utf-8)
 (set-keyboard-coding-system	'utf-8)
 ;; * Emacs Packages repositories
+(package-initialize)
 (setq package-archives
       (quote
        (("gnu" . "http://elpa.gnu.org/packages/")
-	("marmalade" . "http://marmalade-repo.org/packages/")
+	;;("marmalade" . "http://marmalade-repo.org/packages/")
 	("melpa" . "http://melpa.milkbox.net/packages/"))))
+
+(setq req-packages
+      '(
+	magit
+	python-mode
+	elpy
+	jedi
+	))
+
+(let ((refreshed nil))
+  (when (not package-archive-contents)
+    (package-refresh-contents)
+    (setq refreshed t))
+  (dolist (pkg req-packages)
+    (when (and (not (package-installed-p pkg))
+	       (assoc pkg package-archive-contents))
+      (unless refreshed
+	(package-refresh-contents)
+	(setq refreshed t))
+      (package-install pkg))))
+
+
 ;; * P@THS & REQUIRES
 (require 'ffap)
 (require 'cl)
 (require 'calc)
 (require 'saveplace)
-(package-initialize)
+
 (load-library	"server")
 (load-library	"savehist")
 (load-library	"iso-transl")
