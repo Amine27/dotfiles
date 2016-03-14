@@ -16,7 +16,7 @@ if `grep "HOME/.local/bin" $HOME/.profile >/dev/null 2>&1`; then
 else
     echo "Création et ajout de $HOME/.local/bin dans le path";
     mkdir -p $HOME/.local/bin ;
-    cat >> $HOME/.profile <<EOF
+    cat >> $HOME/.profile <<'EOF'
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
