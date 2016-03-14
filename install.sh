@@ -14,34 +14,43 @@
 # .configure && make
 
 current_dir="$( cd "$( dirname "$0")" && pwd)"
-cd $HOME
-if [ ! -f .emacs.el ]; then
-    ln -s $current_dir/emacs.el .emacs.el
-fi
+homeconfig=$(ls | egrep -iv \(bin\|install\|readme\))
+for fichier in $homeconfig; do
+    if [ ! -f $HOME/.$fichier ] ; then
+	ln -s $current_dir/$fichier $HOME/.$fichier
+	echo "$HOME/.$fichier a été créé"
+    else
+	echo "$HOME/.$fichier exist déjà"
+    fi
+done
+# cd $HOME
+# if [ ! -f .emacs.el ]; then
+#     ln -s $current_dir/emacs.el .emacs.el
+# fi
 
-if [ ! -f .emacs-custom.el ]; then
-    ln -s $current_dir/emacs-custom.el .emacs-custom.el
-fi
+# if [ ! -f .emacs-custom.el ]; then
+#     ln -s $current_dir/emacs-custom.el .emacs-custom.el
+# fi
 
-if [ ! -f .bash_aliases ]; then
-    ln -s $current_dir/bash_aliases .bash_aliases
-fi
+# if [ ! -f .bash_aliases ]; then
+#     ln -s $current_dir/bash_aliases .bash_aliases
+# fi
 
-if [ ! -f .git-completion.bash ]; then
-    ln -s $current_dir/git-completion.bash .git-completion.bash
-fi
+# if [ ! -f .git-completion.bash ]; then
+#     ln -s $current_dir/git-completion.bash .git-completion.bash
+# fi
 
-cp .profile .profilebk && ln -s $current_dir/profile .profile
-ln -s $current_dir/tmux.conf .tmux.conf
+# cp .profile .profilebk && ln -s $current_dir/profile .profile
+# ln -s $current_dir/tmux.conf .tmux.conf
 
 
-if [ ! -d .emacs.d ]; then
-    mkdir .emacs.d
-fi
+# if [ ! -d .emacs.d ]; then
+#     mkdir .emacs.d
+# fi
 
-if [ ! -d bin ]; then
-    mkdir bin
-fi
+# if [ ! -d bin ]; then
+#     mkdir bin
+# fi
 
 #wget https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/sr-speedbar.el -O .emacs.d/sr-speedbar.el
 
