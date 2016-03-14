@@ -4,9 +4,9 @@ homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
 for fichier in $homeconfig; do
     if [ ! -f $HOME/.$fichier ] ; then
 	ln -s $current_dir/$fichier $HOME/.$fichier
-	echo ".$fichier a été créé"
+	echo "~/.$fichier a été créé"
     else
-	echo ".$fichier exist déjà"
+	echo "~/.$fichier exist déjà"
     fi
 done
 
@@ -14,9 +14,15 @@ done
 if `grep "HOME/.local/bin" $HOME/.profile >/dev/null 2>&1`; then
     echo "$HOME/.local/bin est déjà dans le path";
 else
-    echo "Création et ajout de $HOME/.local/bin dans le path";
-    mkdir -p $HOME/.local/bin ;
+    if [ ! -d $HOME/.local/bin ]; then
+	echo "Création et ajout de ~/.local/bin dans le path";
+	mkdir -p $HOME/.local/bin ;
+    else
+	echo "Le dossier ~/.local/bin existe déjà. Il va être ajouté au path";
+    fi
     cat >> $HOME/.profile <<'EOF'
+
+# set PATH so it includes user's .local/bin folder
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
