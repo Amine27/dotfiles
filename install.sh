@@ -1,6 +1,6 @@
 #!/bin/bash
 current_dir="$( cd "$( dirname "$0")" && pwd)" ;
-homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile))";
+homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
 cd $HOME
 for fichier in $homeconfig; do
     if [ ! -f $HOME/.$fichier ] ; then
