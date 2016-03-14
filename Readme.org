@@ -2,7 +2,6 @@
 Ce dépot contient les fichiers de configuration nécessaires à l'établissement d'un environnement de base.
 Sont concernés :
 - Bash & Git
-  - profile
   - bash_aliases
   - git-completion.bash
 - Emacs
@@ -11,8 +10,10 @@ Sont concernés :
 - Tmux
   - tmux.conf
 Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot.
+
+Remarque : point espace install.sh pour sourcer les aliases et les variables d'environnement dans le shell courant
 #+BEGIN_SRC bash
-sh install.sh
+. install.sh
 #+END_SRC
 * Elpy
 ~M-x elpy-config RET~ donne accès  à ~Elpy Configuration~,  un buffer
