@@ -3,7 +3,7 @@ current_dir="$( cd "$( dirname "$0")" && pwd)" ;
 homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
 for fichier in $homeconfig; do
     if [ ! -f $HOME/.$fichier ] ; then
-	ln -s $fichier $HOME/.$fichier
+	ln -s $current_dir/$fichier $HOME/.$fichier
 	echo ".$fichier a été créé"
     else
 	echo ".$fichier exist déjà"
