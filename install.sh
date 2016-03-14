@@ -1,7 +1,6 @@
 #!/bin/bash
 current_dir="$( cd "$( dirname "$0")" && pwd)" ;
 homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
-cd $HOME
 for fichier in $homeconfig; do
     if [ ! -f $HOME/.$fichier ] ; then
 	ln -s $current_dir/$fichier .$fichier
@@ -11,13 +10,18 @@ for fichier in $homeconfig; do
     fi
 done
 
-# cp .profile .profilebk && ln -s $current_dir/profile .profile
-# ln -s $current_dir/tmux.conf .tmux.conf
-
-
-# if [ ! -d .emacs.d ]; then
-#     mkdir .emacs.d
-# fi
+# Le dossier $HOME/.local/bin est utilisé par python-pip
+if `grep "HOME/.local/bin" $HOME/.profile >/dev/null 2>&1`; then
+    echo "$HOME/.local/bin est déjà dans le path";
+else
+    echo "Création et ajout de $HOME/.local/bin dans le path";
+    mkdir -p $HOME/.local/bin ;
+    cat >> $HOME/.profile <<EOF
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+EOF
+fi
 
 # if [ ! -d bin ]; then
 #     mkdir bin
