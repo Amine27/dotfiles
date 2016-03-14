@@ -35,4 +35,15 @@ alias gill='git pull'
 alias gim='git commit'
 alias gip='git push'
 alias gis='git status'
+alias gid='git diff'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+source ~/.git-completion.bash
+__git_complete gia _git_add
+__git_complete gic _git_checkout
+__git_complete gil _git_log
+__git_complete gill _git_pull
+__git_complete gif _git_fetch
+__git_complete gim _git_commit
+__git_complete gip _git_push
+__git_complete gid _git_diff
+__git_complete gib _git_branch
