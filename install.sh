@@ -11,6 +11,13 @@ for fichier in $homeconfig; do
     fi
 done
 
+if [ -h $HOME/.profile ];then
+    rm $HOME/.profile;
+    cp /etc/skel/.profile $HOME;
+fi
+
+
+
 # Le dossier $HOME/.local/bin est utilisé par python-pip
 if `grep "HOME/.local/bin" $HOME/.profile >/dev/null 2>&1`; then
     echo "$HOME/.local/bin est déjà dans le path";
