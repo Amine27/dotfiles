@@ -40,7 +40,7 @@ fi
 
 if [ ! `grep "fire_tmux.bash" $HOME/.profile >/dev/null 2>&1` ]; then
     cat >> $HOME/.profile <<EOF
-if [ ! -d $current_dir/fire_tmux.bash ]; then
+if [ -f $current_dir/fire_tmux.bash ]; then
     source $current_dir/fire_tmux.bash
 fi
 
