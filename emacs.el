@@ -272,36 +272,36 @@
 ;; (require 'git)
 ;; * Odoo integration
 
-(setq comint-output-filter-functions '(ansi-color-process-output
-					 comint-postoutput-scroll-to-bottom
-					 comint-truncate-buffer)
-	comint-buffer-maximum-size 500)
+;; (setq comint-output-filter-functions '(ansi-color-process-output
+;; 					 comint-postoutput-scroll-to-bottom
+;; 					 comint-truncate-buffer)
+;; 	comint-buffer-maximum-size 500)
 
-(defun odoo_start()
-  (interactive)
-  (let (
-	(odoo-outb "*Sortie Odoo*")
-	(odoo-errb "*Error Odoo*")
-	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py")
-	(async-shell-command-buffer 'confirm-kill-process)
-	)
-    (async-shell-command odoo-comm odoo-outb odoo-errb)))
+;; (defun odoo_start()
+;;   (interactive)
+;;   (let (
+;; 	(odoo-outb "*Sortie Odoo*")
+;; 	(odoo-errb "*Error Odoo*")
+;; 	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py")
+;; 	(async-shell-command-buffer 'confirm-kill-process)
+;; 	)
+;;     (async-shell-command odoo-comm odoo-outb odoo-errb)))
 
-(defun odoo_update()
-  (interactive)
-  (let (
-	(odoo-outb "*Sortie Odoo*")
-	(odoo-errb "*Error Odoo*")
-	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py --addons-path='~/odoo-dev/odoo8/addons,~/odoo-dev/custumdir' -d test")
-	(async-shell-command-buffer 'confirm-kill-process)
-	)
-    (async-shell-command odoo-comm odoo-outb odoo-errb)))
+;; (defun odoo_update()
+;;   (interactive)
+;;   (let (
+;; 	(odoo-outb "*Sortie Odoo*")
+;; 	(odoo-errb "*Error Odoo*")
+;; 	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py --addons-path='~/odoo-dev/odoo8/addons,~/odoo-dev/custumdir' -d test")
+;; 	(async-shell-command-buffer 'confirm-kill-process)
+;; 	)
+;;     (async-shell-command odoo-comm odoo-outb odoo-errb)))
 
-(defun odoo_stop()
-  (interactive)
-  (interrupt-process "*Sortie Odoo*")
-  )
+;; (defun odoo_stop()
+;;   (interactive)
+;;   (interrupt-process "*Sortie Odoo*")
+;;   )
 
-(global-set-key			[f5]			'odoo_start)
-(global-set-key			[f6]			'odoo_update)
-(global-set-key			[f7]			'odoo_stop)
+;; (global-set-key			[f5]			'odoo_start)
+;; (global-set-key			[f6]			'odoo_update)
+;; (global-set-key			[f7]			'odoo_stop)
