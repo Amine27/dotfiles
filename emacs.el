@@ -17,6 +17,8 @@
 	python-mode
 	elpy
 	jedi
+	color-theme
+	highlight-current-line
 	))
 
 (let ((refreshed nil))
@@ -302,4 +304,3 @@
 ;; (global-set-key			[f6]			'odoo_update)
 ;; (global-set-key			[f7]			'odoo_stop)
 (put 'downcase-region 'disabled nil)
-
