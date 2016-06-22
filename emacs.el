@@ -217,7 +217,6 @@
 (add-hook 'term-mode-hook
               '(lambda ()
                  (term-set-escape-char ?\C-x)))
-
 ;; * dired jump
 (defun dired-jump-and-kill()
   (interactive)
@@ -235,10 +234,7 @@
 	  (message "Yanked region to clipboard!")
 	  (deactivate-mark))
     (message "No region active; can't yank to clipboard!")))
-
 (global-set-key "\M-w" 'yank-to-x-clipboard)
-
-
 ;; * fonts
 ;; (set-fontset-font
 ;;    "fontset-default"
@@ -282,3 +278,4 @@
 (global-set-key			[f5]			'odoo_start)
 (global-set-key			[f6]			'odoo_update)
 (global-set-key			[f7]			'odoo_stop)
+(put 'downcase-region 'disabled nil)
