@@ -9,6 +9,8 @@ Sont concernés :
   - emacs.el
 - Tmux
   - tmux.conf
+- Vim
+  - vimrc  
 Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot.
 
 Remarque : point espace install.sh pour sourcer les aliases et les variables d'environnement dans le shell courant
