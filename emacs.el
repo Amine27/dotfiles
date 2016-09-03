@@ -4,34 +4,62 @@
 (set-terminal-coding-system	'utf-8)
 (set-keyboard-coding-system	'utf-8)
 ;; * Emacs Packages repositories
-(package-initialize)
 (setq package-archives
       (quote
        (("gnu" . "http://elpa.gnu.org/packages/")
 	;;("marmalade" . "http://marmalade-repo.org/packages/")
 	("melpa" . "http://melpa.milkbox.net/packages/"))))
 
-(setq req-packages
+(setq package-list
       '(
-	magit
-	python-mode
-	elpy
-	jedi
+	async
+	auto-complete
 	color-theme
+	company
+	concurrent
+	ctable
+	dash
+	deferred
+	elpy
+	epc
+	find-file-in-project
+	git-commit
 	highlight-current-line
+	highlight-indentation
+	ivy
+	jedi
+	jedi-core
+	magit
+	magit-popup
+	popup
+	python-environment
+	python-mode
+	pyvenv
+	w3m
+	with-editor
+	yasnippet
 	))
+(package-initialize)
 
-(let ((refreshed nil))
-  (when (not package-archive-contents)
-    (package-refresh-contents)
-    (setq refreshed t))
-  (dolist (pkg req-packages)
-    (when (and (not (package-installed-p pkg))
-	       (assoc pkg package-archive-contents))
-      (unless refreshed
-	(package-refresh-contents)
-	(setq refreshed t))
-      (package-install pkg))))
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; (let ((refreshed nil))
+;;   (when (not package-archive-contents)
+;;     (package-refresh-contents)
+;;     (setq refreshed t))
+;;   (dolist (pkg req-packages)
+;;     (when (and (not (package-installed-p pkg))
+;; 	       (assoc pkg package-archive-contents))
+;;       (unless refreshed
+;; 	(package-refresh-contents)
+;; 	(setq refreshed t))
+;;       (package-install pkg))))
 
 
 ;; * P@THS & REQUIRES
@@ -305,6 +333,9 @@
 ;; (global-set-key			[f7]			'odoo_stop)
 (put 'downcase-region 'disabled nil)
 
+;; * sid-theme
+(defun sid-theme()
+  (interactive)
 					;------------;
 					;   Cursor   ;
 					;------------;
@@ -356,3 +387,33 @@
 (setq default-frame-alist (quote (
 				  (frame-background-mode . dark)
 				  )))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:overline nil :inherit nil :stipple nil :background "gray2" :foreground "#FFF991" :inverse-video nil :box nil :strike-through nil :underline nil :slant normal :weight normal :height 83 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(border ((t nil)))
+ '(cursor ((t (:background "firebrick1" :foreground "black"))))
+ '(flymake-errline ((t (:inherit error :foreground "brightred"))))
+ '(font-lock-comment-delimiter-face ((default (:inherit font-lock-comment-face :weight ultra-bold)) (((class color) (min-colors 16)) nil)))
+ '(font-lock-comment-face ((t (:foreground "lime green"))))
+ '(font-lock-doc-face ((t (:foreground "tomato" :slant italic))))
+ '(font-lock-function-name-face ((t (:foreground "deep sky blue" :underline t :weight bold))))
+ '(font-lock-keyword-face ((t (:foreground "gold" :weight bold))))
+ '(font-lock-string-face ((t (:foreground "tomato" :slant italic))))
+ '(fringe ((nil (:background "black"))))
+ '(highlight ((t (:background "khaki1" :foreground "black" :box (:line-width -1 :color "firebrick1")))))
+ '(highlight-current-line-face ((t (:inherit highlight))))
+ '(lazy-highlight ((t (:background "paleturquoise" :foreground "black"))))
+ '(link ((t (:foreground "DodgerBlue3" :underline t))))
+ '(menu ((t (:background "gray2" :foreground "#FFF991"))))
+ '(minibuffer-prompt ((t (:foreground "royal blue"))))
+ '(mode-line ((t (:background "dark olive green" :foreground "dark blue" :box (:line-width -1 :color "gray75") :weight bold))))
+ '(mode-line-buffer-id ((t (:background "dark olive green" :foreground "beige"))))
+ '(mode-line-highlight ((((class color) (min-colors 88)) nil)))
+ '(mode-line-inactive ((t (:background "dark olive green" :foreground "dark khaki" :weight light))))
+ '(mouse ((t (:background "Grey" :foreground "black"))))
+ '(trailing-whitespace ((((class color) (background dark)) (:background "firebrick1")))))
+)
