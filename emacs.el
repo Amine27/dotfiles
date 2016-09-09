@@ -20,6 +20,10 @@
 	ctable
 	dash
 	deferred
+	docker
+	docker-api
+	dockerfile-mode
+	docker-tramp
 	elpy
 	epc
 	find-file-in-project
@@ -37,6 +41,7 @@
 	pyvenv
 	w3m
 	with-editor
+	yaml-mode
 	yasnippet
 	))
 (package-initialize)
