@@ -337,7 +337,21 @@
 ;; (global-set-key			[f6]			'odoo_update)
 ;; (global-set-key			[f7]			'odoo_stop)
 (put 'downcase-region 'disabled nil)
-
+;; * org-capture
+(require 'org-protocol)
+(setq org-capture-templates
+      '(
+	("w" "" entry ;; 'w' for 'org-protocol'
+	 (file+headline "www.org" "Notes")
+	 "* %:description\nSource: %u, %c\n%i"
+	 :immediate-finish t)
+	("x" "" entry ;; 'w' for 'org-protocol'
+	 (file+headline "clisp.org" "Notes")
+	 "* %^{Title}\nSource: %u, %l\n%i"
+	 )
+	;;       "* %c%?\nSource: %u, %l\n%i")
+	;; other templates
+	        ))
 ;; * sid-theme
 (defun sid-theme()
   (interactive)
