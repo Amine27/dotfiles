@@ -34,6 +34,8 @@ __git_complete gid _git_diff
 psg () { ps aux | grep "$@" | grep -v grep; }
 genpw(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-12};echo;}
 
-if [ $GDMSESSION = "gnome" ]; then
-alias lkey="gsettings list-recursively org.gnome.desktop.wm.keybindings";
+if [ $GDMSESSION ]; then
+    if [ $GDMSESSION = "gnome" ]; then
+	alias lkey="gsettings list-recursively org.gnome.desktop.wm.keybindings";
+    fi
 fi
