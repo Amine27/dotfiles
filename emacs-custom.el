@@ -17,6 +17,7 @@
      (plantuml . t)
      (awk . t))))
  '(org-return-follows-link t)
+ '(org-src-fontify-natively t)
  '(recentf-auto-cleanup (quote never))
  '(server-kill-new-buffers nil)
  '(w3m-key-binding (quote info))
