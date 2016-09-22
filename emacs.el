@@ -229,7 +229,7 @@
 ;;(global-set-key			(kbd "C-x f")		'find-file-as-root)
 ;;(global-set-key			(kbd "C-x C-f")		'set-fill-column)
 ;;(global-set-key			(kbd "C-x t")		'multi-term)
-(global-set-key			(kbd "C-x l")		'copy-location-to-clip)
+;;(global-set-key			(kbd "C-x l")		'copy-location-to-clip)
 (global-set-key			(kbd "M-a")		'dabbrev-expand)
 (global-set-key			(kbd "C-x r M-%")	'my-replace-string-rectangle)
 (global-set-key			(kbd "C-x r C-M-%")	'my-replace-regexp-rectangle)
