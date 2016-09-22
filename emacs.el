@@ -144,8 +144,7 @@
 
 (load custom-file)
 (setq backup-by-copying       t
-      savedir		      "~/.saves"
-      backup-directory-alist  '(("." . ,savedir))
+      backup-directory-alist  '(("." . "~/.saves"))
       delete-old-versions     t
       kept-new-versions       6
       kept-old-versions       2
