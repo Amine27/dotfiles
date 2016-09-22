@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dired-auto-revert-buffer (quote dired-directory-changed-p))
+ '(dired-listing-switches "-alh --group-directories-first ")
  '(ido-enable-flex-matching t)
  '(ido-show-dot-for-dired t)
  '(org-babel-load-languages
