@@ -18,8 +18,16 @@
      (dot . t)
      (plantuml . t)
      (awk . t))))
+ '(org-link-frame-setup
+   (quote
+    ((vm . vm-visit-folder-other-frame)
+     (vm-imap . vm-visit-imap-folder-other-frame)
+     (gnus . org-gnus-no-new-news)
+     (file . find-file-other-frame)
+     (wl . wl-other-frame))))
  '(org-return-follows-link t)
  '(org-src-fontify-natively t)
+ '(org-src-window-setup (quote current-window))
  '(recentf-auto-cleanup (quote never))
  '(server-kill-new-buffers nil)
  '(w3m-key-binding (quote info))
