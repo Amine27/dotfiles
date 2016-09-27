@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(dired-auto-revert-buffer (quote dired-directory-changed-p))
  '(dired-listing-switches "-alh --group-directories-first ")
+ '(highlight-nonselected-windows t)
  '(ido-auto-merge-work-directories-length -1)
  '(ido-enable-flex-matching t)
  '(ido-show-dot-for-dired t)
