@@ -18,6 +18,7 @@
      (dot . t)
      (plantuml . t)
      (awk . t))))
+ '(org-link-file-path-type (quote relative))
  '(org-link-frame-setup
    (quote
     ((vm . vm-visit-folder-other-frame)
@@ -26,10 +27,11 @@
      (file . find-file-other-frame)
      (wl . wl-other-frame))))
  '(org-return-follows-link t)
- '(org-src-fontify-natively t)
+ '(org-src-fontify-natively nil)
  '(org-src-window-setup (quote current-window))
  '(recentf-auto-cleanup (quote never))
  '(server-kill-new-buffers nil)
+ '(server-temp-file-regexp "^/tmp/Re\\|COMMIT_EDITMSG\\|/draft$")
  '(w3m-key-binding (quote info))
  '(wdired-allow-to-change-permissions t))
 (custom-set-faces
