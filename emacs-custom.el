@@ -9,6 +9,7 @@
  '(ido-auto-merge-work-directories-length -1)
  '(ido-enable-flex-matching t)
  '(ido-show-dot-for-dired t)
+ '(neo-smart-open t)
  '(org-babel-load-languages
    (quote
     ((emacs-lisp . t)
