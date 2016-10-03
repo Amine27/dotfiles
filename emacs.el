@@ -43,6 +43,7 @@
 	with-editor
 	yaml-mode
 	yasnippet
+	neotree
 	))
 (package-initialize)
 
