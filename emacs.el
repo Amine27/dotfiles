@@ -67,6 +67,7 @@
 ;; 	(setq refreshed t))
 ;;       (package-install pkg))))
 ;; dummy for test email
+;; dummy for test2 email
 
 ;; * P@THS & REQUIRES
 (require 'ffap)
