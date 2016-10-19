@@ -443,7 +443,7 @@
 
 ;; Will search for a file in home called $USER.el and loads it
 (let (
-      (custom-user-file (concat "~/" (user-login-name) ".el"))
+      (custom-user-file (concat "~/." (user-login-name) ".el"))
       )
   (if (file-exists-p custom-user-file)
       (load custom-user-file)))
