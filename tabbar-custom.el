@@ -25,11 +25,15 @@
 (global-set-key "\M-n"                  'tabbar-forward)
 (global-set-key "\M-p"                  'tabbar-backward)
 
-(setq	tabbar-buffer-groups-function		(lambda ()
-						  (list "All Buffers"))
+(defun mygroups()
+  (list (cond ((eq major-mode 'dired-mode) "Dirs")
+	      (t "All"))))
+
+(setq	tabbar-buffer-groups-function		'mygroups
 	tabbar-buffer-list-function		(lambda ()
 						  (remove-if
 						   (lambda(buffer)
 						     (find (aref (buffer-name buffer) 0) " *"))
-						   (buffer-list)))
+						   (buffer-list))
+						  )
 	)
