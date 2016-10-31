@@ -441,10 +441,16 @@
 )
 
 ;; * Load a user file if any
-
-;; Will search for a file in home called $USER.el and loads it
+;, Will search for a file in home called $USER.el and loads it
 (let (
       (custom-user-file (concat "~/." (user-login-name) ".el"))
       )
   (if (file-exists-p custom-user-file)
       (load custom-user-file)))
+
+
+;; * disable electric-indent in rst-mode
+;; http://emacs.stackexchange.com/a/14053/13367
+(defun my-rst-mode-hook ()
+  (electric-indent-local-mode -1))
+(add-hook 'rst-mode-hook #'my-rst-mode-hook)
