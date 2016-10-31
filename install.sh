@@ -1,7 +1,11 @@
 #!/bin/bash
-#current_dir="$( cd "$( dirname "$0")" && pwd)" ;
+
 current_dir=$PWD;
 homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
+
+# Crée un lien symbolique des fichiers de configuration vers le
+# contenu de ce dossier
+
 for fichier in $homeconfig; do
     if [ ! -f $HOME/.$fichier ] ; then
 	ln -s $current_dir/$fichier $HOME/.$fichier
@@ -11,6 +15,9 @@ for fichier in $homeconfig; do
     fi
 done
 
+# S'assure que le fichier $HOME/.profile n'est pas un lien
+# Si oui le remplacer par le template système
+
 if [ -h $HOME/.profile ];then
     rm $HOME/.profile;
     cp /etc/skel/.profile $HOME;
@@ -19,6 +26,8 @@ fi
 
 
 # Le dossier $HOME/.local/bin est utilisé par python-pip
+# S'assurer qu'il est dans la variable PATH
+
 if `grep "HOME/.local/bin" $HOME/.profile >/dev/null 2>&1`; then
     echo "$HOME/.local/bin est déjà dans le path";
 else
@@ -47,24 +56,6 @@ fi
 EOF
 fi
 
+
+# Charger les aliases
 source ~/.bash_aliases
-# if [ ! -d bin ]; then
-#     mkdir bin
-# fi
-
-#wget https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/sr-speedbar.el -O .emacs.d/sr-speedbar.el
-
-#pip install --user
-
-# apt-get update &&  apt-get upgrade
-# apt-get install software-properties-common -y
-# add-apt-repository ppa:git-core/ppa -y
-# apt-get update
-# apt-get install git build-essentials tmux python-pip -y
-# apt-get build-dep emacs24
-
-# cd /usr/local/src
-# wget http://pdn.local/emacs-24.5.tar.gz
-# tar xzf emacs-24.5.tar.gz
-# cd emacs-24.5
-# .configure && make
