@@ -31,9 +31,13 @@
  '(org-return-follows-link t)
  '(org-src-fontify-natively nil)
  '(org-src-window-setup (quote current-window))
+ '(read-mail-command (quote gnus))
  '(recentf-auto-cleanup (quote never))
+ '(safe-local-variable-values (quote ((org-export-babel-evaluate . t))))
+ '(sentence-end-double-space nil)
  '(server-kill-new-buffers nil)
  '(server-temp-file-regexp "^/tmp/Re\\|COMMIT_EDITMSG\\|/draft$")
+ '(vc-follow-symlinks t)
  '(w3m-key-binding (quote info))
  '(wdired-allow-to-change-permissions t))
 (custom-set-faces
