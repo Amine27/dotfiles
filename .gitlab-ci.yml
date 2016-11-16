@@ -1,4 +1,5 @@
 job:
   script:
-    - echo $(pwd)
-    - ls $(pwd)/../
+    - ls
+    - pwd
+    - hostname
