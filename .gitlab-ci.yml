@@ -1,4 +1,5 @@
 job:
   image: az/emacs:0.1
   script:
-    - pwd
+    - emacs --daemon
+    - emacsclient -e '(kill-emacs)'
