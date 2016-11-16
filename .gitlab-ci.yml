@@ -1,0 +1,5 @@
+ job:
+   image: az/emacs:0.1
+   script:
+     - . install.sh
+     - emacs --daemon
