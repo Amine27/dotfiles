@@ -59,3 +59,7 @@ fi
 
 # Charger les aliases
 source ~/.bash_aliases
+
+# Créer un template dir pour les hooks de git
+
+git config --global init.templatedir $current_dir/hooks
