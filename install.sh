@@ -62,4 +62,4 @@ source ~/.bash_aliases
 
 # Créer un template dir pour les hooks de git
 
-git config --global init.templatedir $current_dir/hooks
+git config --global init.templateDir $current_dir/gitemplates
