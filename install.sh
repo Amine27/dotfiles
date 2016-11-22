@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current_dir=$PWD;
-homeconfig="$(ls | egrep -iv \(bin\|install\|readme\|profile\))";
+homeconfig="$(ls -F | grep -v / | egrep -iv \(bin\|install\|readme\|profile\))";
 
 # Crée un lien symbolique des fichiers de configuration vers le
 # contenu de ce dossier
