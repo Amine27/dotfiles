@@ -24,6 +24,7 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 if [ $BASH_VERSION ]; then
 source ~/.git-completion.bash
 __git_complete gia _git_add
+__git_complete gib _git_branch
 __git_complete gic _git_checkout
 __git_complete gil _git_log
 __git_complete gill _git_pull
