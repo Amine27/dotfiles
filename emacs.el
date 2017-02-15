@@ -466,3 +466,7 @@
       (set-face-background 'default "unspecified-bg" frame)))
 (on-frame-open (selected-frame))
 (add-hook 'after-make-frame-functions 'on-frame-open)
+
+;; highlight current line
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
