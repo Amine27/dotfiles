@@ -44,6 +44,7 @@
 	yaml-mode
 	yasnippet
 	neotree
+	moe-theme
 	))
 (package-initialize)
 
@@ -454,3 +455,7 @@
 (defun my-rst-mode-hook ()
   (electric-indent-local-mode -1))
 (add-hook 'rst-mode-hook #'my-rst-mode-hook)
+
+;; Moe-theme color schems
+(require 'moe-theme)
+(moe-dark)
