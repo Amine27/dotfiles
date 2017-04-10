@@ -31,6 +31,9 @@ alias gip='git push'
 alias gis='git status'
 alias gid='git diff'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 if [ $BASH_VERSION ]; then
 source ~/.git-completion.bash
