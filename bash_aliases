@@ -31,12 +31,14 @@ alias gip='git push'
 alias gis='git status'
 alias gid='git diff'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias ddo='docker-compose down'
+alias dp='docker-compose up | ccze -A'
+alias dcl='docker-compose logs -f --tail=10 | ccze -A'
+alias dcu='docker-compose up | ccze -A'
+alias dcd='docker-compose down'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias dcu='docker-compose up | ccze -A'
-alias dcd='docker-compose down'
-alias dcl='docker-compose logs -f --tail=10 | ccze -A'
 
 if [ $BASH_VERSION ]; then
 source ~/.git-completion.bash
