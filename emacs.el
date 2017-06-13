@@ -45,6 +45,7 @@
 	yasnippet
 	neotree
 	moe-theme
+	django-mode
 	))
 (package-initialize)
 
