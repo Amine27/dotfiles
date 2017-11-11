@@ -28,7 +28,7 @@
 	epc
 	find-file-in-project
 	git-commit
-	highlight-current-line
+	;;highlight-current-line
 	highlight-indentation
 	ivy
 	jedi
