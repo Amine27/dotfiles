@@ -46,6 +46,7 @@
 	neotree
 	moe-theme
 	django-mode
+	sass-mode
 	))
 (package-initialize)
 
