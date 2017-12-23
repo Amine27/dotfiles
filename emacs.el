@@ -472,3 +472,6 @@
 ;; highlight current line
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
+
+(setq auto-mode-alist (append '(("\\.scss$" . sass-mode))
+			            auto-mode-alist))
