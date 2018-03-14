@@ -19,10 +19,10 @@ requiredver="2.3.0"
 if [ "$(printf "$requiredver\n$currentver" | sort -V | head -n1)" == "$currentver" ] && [ "$currentver" != "$requiredver" ];
 then
 	#echo "git less than 2.3.0 ($currentver)"
-        alias gil="git log --graph --date=iso --pretty='format:%C(yellow)%h %C(green)%ad %C(bold blue)%an %C(auto)%d%C(reset) %s'"
+        alias gil="git log --graph --all --date=iso --pretty='format:%C(yellow)%h %C(green)%ad %C(bold blue)%an %C(auto)%d%C(reset) %s'"
 else
 	#echo "git greater than 2.3.0 ($currentver)"
-	alias gil="git log --graph --date='format:%Y-%m-%d %H:%M:%S' --pretty='format:%C(yellow)%h %C(green)%ad %C(bold blue)%an %C(auto)%d%C(reset) %s'"
+	alias gil="git log --graph --all --date='format:%Y-%m-%d %H:%M:%S' --pretty='format:%C(yellow)%h %C(green)%ad %C(bold blue)%an %C(auto)%d%C(reset) %s'"
 fi
 
 alias gill='git pull'
