@@ -131,6 +131,11 @@ function ff() {
 		  echo "Odoo filestore volume UID/GID is not fixed!"
     	      fi
 	   fi
+	   if [ ! -d extra-addons ]; then
+	      mkdir extra-addons
+    	   else
+	      sudo chown `id -u`:`id -u` -R extra-addons
+    	   fi
 	fi
     fi
 }
