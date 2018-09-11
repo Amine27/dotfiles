@@ -475,3 +475,5 @@
 
 (setq auto-mode-alist (append '(("\\.scss$" . sass-mode))
 			            auto-mode-alist))
+;; * disable tabs for indentations
+(setq-default indent-tabs-mode nil)
