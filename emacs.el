@@ -49,6 +49,7 @@
 	django-mode
 	sass-mode
         pug-mode
+        flycheck
 	))
 (package-initialize)
 
@@ -493,3 +494,26 @@
 (setq pug-tab-width 2)
 
 (global-set-key [remap newline] #'newline-and-indent)
+
+(defun my/use-eslint-from-node-modules ()
+  (let* ((root (locate-dominating-file
+                (or (buffer-file-name) default-directory)
+                "node_modules"))
+         (eslint (and root
+                      (expand-file-name "node_modules/.bin/eslint"
+                                        root))))
+    (when (and eslint (file-executable-p eslint))
+      (setq-local flycheck-javascript-eslint-executable eslint))))
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(require 'flycheck)
+;; enable flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers '(javascript-jshint))
+;; use eslint with web-mode for jsx files
+;;(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; customize flycheck temp file prefix
+;;(setq-default flycheck-temp-prefix ".flycheck")
+;; Use local eslint
+(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
