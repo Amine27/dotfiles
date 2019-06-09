@@ -13,9 +13,10 @@
 (setq package-list
       '(
 	async
-	auto-complete
+	;;auto-complete
 	color-theme
 	company
+        company-tern
 	concurrent
 	ctable
 	dash
@@ -47,6 +48,7 @@
 	moe-theme
 	django-mode
 	sass-mode
+        pug-mode
 	))
 (package-initialize)
 
@@ -289,16 +291,16 @@
   (kill-buffer tokill))
 (global-set-key			(kbd "C-x C-j")	'dired-jump-and-kill)
 ;; * yank-to-x-clipboard
-(defun yank-to-x-clipboard ()
-  (interactive)
-  (if (region-active-p)
-        (progn
-	  (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
-	  (clipboard-kill-ring-save (region-beginning) (region-end))
-	  (message "Yanked region to clipboard!")
-	  (deactivate-mark))
-    (message "No region active; can't yank to clipboard!")))
-(global-set-key "\M-w" 'yank-to-x-clipboard)
+;; (defun yank-to-x-clipboard ()
+;;   (interactive)
+;;   (if (region-active-p)
+;;         (progn
+;; 	  (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
+;; 	  (clipboard-kill-ring-save (region-beginning) (region-end))
+;; 	  (message "Yanked region to clipboard!")
+;; 	  (deactivate-mark))
+;;     (message "No region active; can't yank to clipboard!")))
+;; (global-set-key "\M-w" 'yank-to-x-clipboard)
 ;; * fonts
 ;; (set-fontset-font
 ;;    "fontset-default"
@@ -477,3 +479,17 @@
 			            auto-mode-alist))
 ;; * disable tabs for indentations
 (setq-default indent-tabs-mode nil)
+
+;; use company-mode in all buffers
+(add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'company-backends 'company-tern)
+(add-hook 'js2-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)))
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+
+;; chnage pug's indentation to 2 spaces
+(setq pug-tab-width 2)
+
+(global-set-key [remap newline] #'newline-and-indent)
