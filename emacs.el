@@ -50,6 +50,7 @@
 	sass-mode
         pug-mode
         flycheck
+        js2-mode
 	))
 (package-initialize)
 
@@ -495,6 +496,16 @@
 
 (global-set-key [remap newline] #'newline-and-indent)
 
+;; associate files with js2 mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; better imenu
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+
+;; identation with 2 spaces
+(setq js-indent-level 2)
+(setq-default js2-basic-offset 2)
+
 (defun my/use-eslint-from-node-modules ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
@@ -506,7 +517,7 @@
       (setq-local flycheck-javascript-eslint-executable eslint))))
 ;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-(require 'flycheck)
+;;(require 'flycheck)
 ;; enable flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; disable jshint since we prefer eslint checking
