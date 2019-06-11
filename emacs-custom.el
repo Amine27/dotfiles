@@ -35,7 +35,7 @@
  '(org-src-window-setup (quote current-window))
  '(package-selected-packages
    (quote
-    (company-tern company-ansible company-web pug-mode ## sass-mode django-mode moe-theme neotree yaml-mode w3m python-mode magit jedi git-commit epc elpy dockerfile-mode docker-api docker dash ctable concurrent company color-theme auto-complete async)))
+    (company-tern company-ansible company-web pug-mode sass-mode django-mode moe-theme neotree yaml-mode w3m python-mode magit jedi git-commit epc elpy dockerfile-mode docker-api docker dash ctable concurrent company color-theme auto-complete async)))
  '(read-mail-command (quote gnus))
  '(recentf-auto-cleanup (quote never))
  '(safe-local-variable-values (quote ((org-export-babel-evaluate . t))))
