@@ -14,7 +14,7 @@
       '(
 	async
 	;;auto-complete
-	color-theme
+	;;color-theme
 	company
         company-tern
 	concurrent
@@ -408,14 +408,14 @@
 					;-----------------;
 
 					; use the "Subtle Hacker" color theme as a base for the custom scheme
-(require 'color-theme)
-(color-theme-initialize)
-(setq color-theme-is-global t)
-(color-theme-subtle-hacker)
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (setq color-theme-is-global t)
+;; (color-theme-subtle-hacker)
 					; make sure the frames have the dark background mode by default
-(setq default-frame-alist (quote (
-				  (frame-background-mode . dark)
-				  )))
+;; (setq default-frame-alist (quote (
+;; 				  (frame-background-mode . dark)
+;; 				  )))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -15,7 +15,7 @@
  '(org-babel-load-languages
    (quote
     ((emacs-lisp . t)
-     (sh . t)
+     (shell . t)
      (awk . t)
      (python . t)
      (ditaa . t)
@@ -53,5 +53,5 @@
  '(hl-line ((t (:background "brightyellow"))))
  '(org-block ((t (:inherit shadow))))
  '(org-block-background ((t (:background "color-255"))))
- '(org-block-begin-line ((t (:inherit org-meta-line))) t)
- '(org-block-end-line ((t (:inherit org-meta-line))) t))
+ '(org-block-begin-line ((t (:inherit org-meta-line))))
+ '(org-block-end-line ((t (:inherit org-meta-line)))))
