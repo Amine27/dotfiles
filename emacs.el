@@ -533,3 +533,5 @@
 ;; Use local eslint
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 (put 'upcase-region 'disabled nil)
+;; CamelCase aware editing
+(add-hook 'prog-mode-hook 'subword-mode)
