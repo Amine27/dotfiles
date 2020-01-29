@@ -11,10 +11,9 @@ Sont concernés :
   - tmux.conf
 - Vim
   - vimrc
-Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot.
 * Configuration de l'environnement de développement
 Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
-Le mieux pour faire fonctionner ces configurations est de créer des liens symboliques.
+Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot :
 #+BEGIN_SRC sh
 cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles && . install.sh && cd
 #+END_SRC
@@ -30,8 +29,8 @@ Des url de dépôts de packages ont été ajoutés.
 	)))
 #+END_SRC
 ** Raccourcis utiles
-- Le prefix ~C~ représente la trouche ~Ctrl~.
-- Le prefix ~M~ représente la trouche ~Alt~.
+- Le prefix ~C~ représente la touche ~Ctrl~ du clavier.
+- Le prefix ~M~ représente la touche ~Alt~ du clavier.
 | Shortcut              | Description                                 |
 |-----------------------+---------------------------------------------|
 | C-x C-f               | find file                                   |
