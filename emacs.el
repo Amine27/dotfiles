@@ -51,6 +51,9 @@
         pug-mode
         flycheck
         js2-mode
+        doom-modeline
+        htmlize
+        org-preview-html
 	))
 (package-initialize)
 
@@ -61,21 +64,6 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
-;; (let ((refreshed nil))
-;;   (when (not package-archive-contents)
-;;     (package-refresh-contents)
-;;     (setq refreshed t))
-;;   (dolist (pkg req-packages)
-;;     (when (and (not (package-installed-p pkg))
-;; 	       (assoc pkg package-archive-contents))
-;;       (unless refreshed
-;; 	(package-refresh-contents)
-;; 	(setq refreshed t))
-;;       (package-install pkg))))
-;; dummy for test email
-;; dummy for test2 email
-;; dummy for test2 webhook mattermost
 
 ;; * P@THS & REQUIRES
 (require 'ffap)
@@ -90,9 +78,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; ajoute la numérotation de lignes par défaut
-;; dans tous les buffers visités
-;(global-linum-mode t)
 (elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
@@ -101,11 +86,11 @@
 (recentf-mode		1)
 (delete-selection-mode	1)
 ;(tool-bar-mode		0)
-(menu-bar-mode		1)
+(menu-bar-mode		0)
 (savehist-mode		1)
 (ido-mode		t)
 (global-auto-revert-mode t)
-(desktop-save-mode      1)
+;; (desktop-save-mode      1)
 (if (not (server-running-p))  (server-start))
 ;; * VARIABLES
 (setq
@@ -231,38 +216,38 @@
     (pop-to-buffer cur-buffer)))
 
 ;; * KEYS
-(global-set-key			(kbd "C-c <up>")	'maximize-window)
-(global-set-key			(kbd "C-c <down>")	'minimize-window)
-(global-set-key			(kbd "C-c <right>")	'balance-windows)
-(global-set-key			(kbd "C-x C-b")		'ibuffer)
-(global-set-key			(kbd "C-x C-f")		'find-file)
+;; (global-set-key			(kbd "C-c <up>")	'maximize-window)
+;; (global-set-key			(kbd "C-c <down>")	'minimize-window)
+;; (global-set-key			(kbd "C-c <right>")	'balance-windows)
+;; (global-set-key			(kbd "C-x C-b")		'ibuffer)
+;; (global-set-key			(kbd "C-x C-f")		'find-file)
 ;;(global-set-key			(kbd "C-x f")		'find-file-as-root)
 ;;(global-set-key			(kbd "C-x C-f")		'set-fill-column)
 ;;(global-set-key			(kbd "C-x t")		'multi-term)
 ;;(global-set-key			(kbd "C-x l")		'copy-location-to-clip)
-(global-set-key			(kbd "M-a")		'dabbrev-expand)
-(global-set-key			(kbd "C-x r M-%")	'my-replace-string-rectangle)
-(global-set-key			(kbd "C-x r C-M-%")	'my-replace-regexp-rectangle)
+;; (global-set-key			(kbd "M-a")		'dabbrev-expand)
+;; (global-set-key			(kbd "C-x r M-%")	'my-replace-string-rectangle)
+;; (global-set-key			(kbd "C-x r C-M-%")	'my-replace-regexp-rectangle)
 
-(global-set-key			[f7]			'recentf-open-files)
-(global-set-key			"\M-[1;5C"		'forward-word)   ;  Ctrl+right->forward word
-(global-set-key			"\M-[1;5D"		'backward-word)  ;  Ctrl+left-> backward word
-(global-set-key			"\C-cu"			'browse-url)
-(global-set-key			"\C-cg"			'browse-url-at-point)
-(global-set-key			"\C-cl"			'goto-line)
-(global-set-key			"\C-xœ"			'delete-window)
-(global-set-key			"\C-x&"			'delete-other-windows)
-(global-set-key			"\C-xé"			'split-window-below)
-(global-set-key			"\C-x\""		'split-window-right)
+;; (global-set-key			[f7]			'recentf-open-files)
+;; (global-set-key			"\M-[1;5C"		'forward-word)   ;  Ctrl+right->forward word
+;; (global-set-key			"\M-[1;5D"		'backward-word)  ;  Ctrl+left-> backward word
+;; (global-set-key			"\C-cu"			'browse-url)
+;; (global-set-key			"\C-cg"			'browse-url-at-point)
+;; (global-set-key			"\C-cl"			'goto-line)
+;; (global-set-key			"\C-xœ"			'delete-window)
+;; (global-set-key			"\C-x&"			'delete-other-windows)
+;; (global-set-key			"\C-xé"			'split-window-below)
+;; (global-set-key			"\C-x\""		'split-window-right)
 
-(define-key global-map		"\C-z"			'undo)
-(define-key global-map		"\C-v"			'scroll-other-window)
-(define-key global-map		"\C-o"			'other-window)
-(define-key global-map		"\C-cx"			'xsteve-flip-windows)
-(define-key global-map		"\C-cw"			'google-search)
-(define-key global-map		"\C-cs"			'synonymes-search)
-(define-key global-map		"\C-cb"			'display-buffer)
-(define-key global-map		"\C-cn"			'find-file-other-window)
+;; (define-key global-map		"\C-z"			'undo)
+;; (define-key global-map		"\C-v"			'scroll-other-window)
+;; (define-key global-map		"\C-o"			'other-window)
+;; (define-key global-map		"\C-cx"			'xsteve-flip-windows)
+;; (define-key global-map		"\C-cw"			'google-search)
+;; (define-key global-map		"\C-cs"			'synonymes-search)
+;; (define-key global-map		"\C-cb"			'display-buffer)
+;; (define-key global-map		"\C-cn"			'find-file-other-window)
 
 ;; (define-key dired-mode-map	(kbd "C-p")		'dired-omit-mode)
 ;; (define-key dired-mode-map	(kbd "C-o")		'other-window)
@@ -292,60 +277,7 @@
   (dired-jump)
   (kill-buffer tokill))
 (global-set-key			(kbd "C-x C-j")	'dired-jump-and-kill)
-;; * yank-to-x-clipboard
-;; (defun yank-to-x-clipboard ()
-;;   (interactive)
-;;   (if (region-active-p)
-;;         (progn
-;; 	  (shell-command-on-region (region-beginning) (region-end) "xsel -i -b")
-;; 	  (clipboard-kill-ring-save (region-beginning) (region-end))
-;; 	  (message "Yanked region to clipboard!")
-;; 	  (deactivate-mark))
-;;     (message "No region active; can't yank to clipboard!")))
-;; (global-set-key "\M-w" 'yank-to-x-clipboard)
-;; * fonts
-;; (set-fontset-font
-;;    "fontset-default"
-;;    (cons (decode-char 'ucs #x0600) (decode-char 'ucs #x06ff)) ; arabic
-;;    "DejaVu Sans Mono")
-;; * Git
-;; (add-to-list 'load-path "/usr/share/git-core/emacs/")
-;; (require 'git)
-;; * Odoo integration
 
-;; (setq comint-output-filter-functions '(ansi-color-process-output
-;; 					 comint-postoutput-scroll-to-bottom
-;; 					 comint-truncate-buffer)
-;; 	comint-buffer-maximum-size 500)
-
-;; (defun odoo_start()
-;;   (interactive)
-;;   (let (
-;; 	(odoo-outb "*Sortie Odoo*")
-;; 	(odoo-errb "*Error Odoo*")
-;; 	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py")
-;; 	(async-shell-command-buffer 'confirm-kill-process)
-;; 	)
-;;     (async-shell-command odoo-comm odoo-outb odoo-errb)))
-
-;; (defun odoo_update()
-;;   (interactive)
-;;   (let (
-;; 	(odoo-outb "*Sortie Odoo*")
-;; 	(odoo-errb "*Error Odoo*")
-;; 	(odoo-comm "python ~/odoo-dev/odoo8/odoo.py --addons-path='~/odoo-dev/odoo8/addons,~/odoo-dev/custumdir' -d test")
-;; 	(async-shell-command-buffer 'confirm-kill-process)
-;; 	)
-;;     (async-shell-command odoo-comm odoo-outb odoo-errb)))
-
-;; (defun odoo_stop()
-;;   (interactive)
-;;   (interrupt-process "*Sortie Odoo*")
-;;   )
-
-;; (global-set-key			[f5]			'odoo_start)
-;; (global-set-key			[f6]			'odoo_update)
-;; (global-set-key			[f7]			'odoo_stop)
 (put 'downcase-region 'disabled nil)
 ;; * org-capture
 (require 'org-protocol)
@@ -362,90 +294,6 @@
 	;;       "* %c%?\nSource: %u, %l\n%i")
 	;; other templates
 	        ))
-;; * sid-theme
-(defun sid-theme()
-  (interactive)
-					;------------;
-					;   Cursor   ;
-					;------------;
-					; highlight the current line
-(require 'highlight-current-line)
-(global-hl-line-mode			t)
-(setq highlight-current-line-globally	t
-      highlight-current-line-high-faces nil
-      highlight-current-line-whole-line nil
-      hl-line-face			(quote highlight))
-
-					; don't blink the cursor
-(blink-cursor-mode			nil)
-					; make sure transient mark mode is enabled (it should be by default,
-					; but just in case)
-(transient-mark-mode			t)
-					; turn on mouse wheel support for scrolling
-(require 'mwheel)
-(mouse-wheel-mode			t)
-					;-------------------------;
-					;   Syntax Highlighting   ;
-					;-------------------------;
-					; text decoration
-(require 'font-lock)
-(setq font-lock-maximum-decoration t)
-(global-font-lock-mode t)
-(global-hi-lock-mode nil)
-(setq jit-lock-contextually t)
-(setq jit-lock-stealth-verbose t)
-
-					; if there is size information associated with text, change the text
-					; size to reflect it
-(size-indication-mode t)
-
-					; highlight parentheses when the cursor is next to them
-(require 'paren)
-(show-paren-mode t)
-
-					;-----------------;
-					;   Color Theme   ;
-					;-----------------;
-
-					; use the "Subtle Hacker" color theme as a base for the custom scheme
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; (setq color-theme-is-global t)
-;; (color-theme-subtle-hacker)
-					; make sure the frames have the dark background mode by default
-;; (setq default-frame-alist (quote (
-;; 				  (frame-background-mode . dark)
-;; 				  )))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:overline nil :inherit nil :stipple nil :background "gray2" :foreground "#FFF991" :inverse-video nil :box nil :strike-through nil :underline nil :slant normal :weight normal :height 83 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
- '(border ((t nil)))
- '(cursor ((t (:background "firebrick1" :foreground "black"))))
- '(flymake-errline ((t (:inherit error :foreground "brightred"))))
- '(font-lock-comment-delimiter-face ((default (:inherit font-lock-comment-face :weight ultra-bold)) (((class color) (min-colors 16)) nil)))
- '(font-lock-comment-face ((t (:foreground "lime green"))))
- '(font-lock-doc-face ((t (:foreground "tomato" :slant italic))))
- '(font-lock-function-name-face ((t (:foreground "deep sky blue" :underline t :weight bold))))
- '(font-lock-keyword-face ((t (:foreground "gold" :weight bold))))
- '(font-lock-string-face ((t (:foreground "tomato" :slant italic))))
- '(fringe ((nil (:background "black"))))
- '(highlight ((t (:background "khaki1" :foreground "black" :box (:line-width -1 :color "firebrick1")))))
- '(highlight-current-line-face ((t (:inherit highlight))))
- '(lazy-highlight ((t (:background "paleturquoise" :foreground "black"))))
- '(link ((t (:foreground "DodgerBlue3" :underline t))))
- '(menu ((t (:background "gray2" :foreground "#FFF991"))))
- '(minibuffer-prompt ((t (:foreground "royal blue"))))
- '(mode-line ((t (:background "dark olive green" :foreground "dark blue" :box (:line-width -1 :color "gray75") :weight bold))))
- '(mode-line-buffer-id ((t (:background "dark olive green" :foreground "beige"))))
- '(mode-line-highlight ((((class color) (min-colors 88)) nil)))
- '(mode-line-inactive ((t (:background "dark olive green" :foreground "dark khaki" :weight light))))
- '(mouse ((t (:background "Grey" :foreground "black"))))
- '(trailing-whitespace ((((class color) (background dark)) (:background "firebrick1")))))
-)
 
 ;; * Load a user file if any
 ;, Will search for a file in home called $USER.el and loads it
@@ -535,3 +383,6 @@
 (put 'upcase-region 'disabled nil)
 ;; CamelCase aware editing
 (add-hook 'prog-mode-hook 'subword-mode)
+;; doom-modeline
+(require 'doom-modeline)
+(doom-modeline-mode 1)
