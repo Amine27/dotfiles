@@ -10,7 +10,7 @@ Sont concernés :
 - Tmux
   - tmux.conf
 - Vim
-  - vimrc  
+  - vimrc
 Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot.
 
 Remarque : point espace install.sh pour sourcer les aliases et les variables d'environnement dans le shell courant
@@ -61,10 +61,66 @@ Des url de dépôts de packages ont été ajoutés.
 	;("autre depot" . "adresse")
 	)))
 #+END_SRC
+** Autres raccourcis utiles
+| Shortcut              | Description                                 |
+|-----------------------+---------------------------------------------|
+| C-x C-f               | find file                                   |
+| C-x C-s               | save file                                   |
+| C-x C-f filename      | create new file with filename               |
+| C-x C-f C             | copy file                                   |
+| C-x C-f R             | rename file                                 |
+| C-x C-f D             | delete file                                 |
+|-----------------------+---------------------------------------------|
+| C-x 3                 | split window left/right                     |
+| C-x 2                 | split window top/bottom                     |
+| C-x 1                 | unsplit all (remover other window)          |
+| C-x 0                 | remove current window                       |
+| C-x o                 | move cursor to next window                  |
+| C-M-v                 | scroll the text of the next window          |
+|-----------------------+---------------------------------------------|
+| M-Del                 | kill the word immediately before the cursor |
+| M-d                   | kill the next word after the cursor         |
+| C-k                   | kill to the end of line                     |
+| C-y                   | yank (past) the most recent kill            |
+| M-y                   | yank (past) previous kills                  |
+| C-x h                 | select all                                  |
+| C-Space               | mark region                                 |
+| C-/, C-x u, C-_       | undo                                        |
+| C-w                   | cut                                         |
+| M-x upcase-region     | to upper case marked region                 |
+| C-o                   | insert blanc line                           |
+|-----------------------+---------------------------------------------|
+| C-x c-b               | list buffers                                |
+| C-x b                 | switch buffer                               |
+| C-x s                 | save some buffers                           |
+|-----------------------+---------------------------------------------|
+| C-h ?                 | help commands                               |
+| C-h r                 | read help                                   |
+| C-h t                 | read tutorial                               |
+|-----------------------+---------------------------------------------|
+| C-x C-c               | quit Emacs                                  |
+| C-g                   | abort command                               |
+| M-x recover-this-file | recover current file from #file             |
+| C-s                   | forward search                              |
+| C-r                   | reverse search                              |
+|-----------------------+---------------------------------------------|
+| C-f                   | forward one caracter                        |
+| C-b                   | backward one caracter                       |
+| C-p                   | previous one line                           |
+| C-n                   | next one line                               |
+| M-f                   | forward one word                            |
+| M-b                   | backward one word                           |
+| C-a                   | beginning of line                           |
+| C-e                   | end of line                                 |
+| M-a                   | beginning of sentence                       |
+| M-e                   | end of sentence                             |
+| C-v                   | go forward one screen                       |
+| M-v                   | go backward one screen                      |
+| M-<                   | start of document                           |
+| M->                   | end of document                             |
 * Tmux
 - Le prefix ~C-b~ par défaut a été modifié à ~C-q~ qui est plus accessible.
 - L'index des fenêtres commence à 1 au lieux de 0.
-- Les touches F1 F2 F3 F4 servent à basculer à la fenêtre correspondant.
 ** Autres raccourcis utiles
 | Raccourci   | Tmux commande          | Descriptif                                                             |
 |-------------+------------------------+------------------------------------------------------------------------|
@@ -76,6 +132,9 @@ Des url de dépôts de packages ont été ajoutés.
 |-------------+------------------------+------------------------------------------------------------------------|
 | C-q Tab     | copy-mode              | entre dans un mode qui permet de remonter dans la sortie du terminal   |
 | C-q y       | paste-buffer           | colle ce qui a été copié pendant le copy-mode                          |
+|-------------+------------------------+------------------------------------------------------------------------|
+| F1          | previous-window        | afficher le panneau précédent                                          |
+| F2          | next-window            | afficher le panneau suivant                                            |
 |-------------+------------------------+------------------------------------------------------------------------|
 | M-Up        | select-pane -U         | déplace le curseur vers le panneau du haut                             |
 | M-Down      | select-pane -D         | déplace le curseur vers le panneau du bas                              |
