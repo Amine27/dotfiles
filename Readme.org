@@ -17,38 +17,11 @@ Remarque : point espace install.sh pour sourcer les aliases et les variables d'e
 #+BEGIN_SRC bash
 . install.sh
 #+END_SRC
-* Elpy
-~M-x elpy-config RET~ donne accès  à ~Elpy Configuration~,  un buffer
-qui permet l'installation de  packages python supplémentaires que Elpy
-peut utiliser pour mieux vous aider.
-
-En appuyant sur ~[run]~ chaque package est installé avec l'option ~--user~.
-Les packages sont installés dans le dossier ~$HOME/.local/bin~.
-Elpy recommande d'ajouter  ce chemin dans la variable  ~PATH~ de votre
-shell. Ajoutez les lignes suivantes dans le fichier ~$HOME/.profile~
-
-#+BEGIN_SRC sh
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-#+END_SRC
-Le dépôt contient une copie du fichier ~.profile~.
-Comme ci-dessous vous pouvez créer un lien symbolique vers ce fichier.
-#+BEGIN_SRC sh
-cd
-rm .profile
-ln -s dotfiles/profile .profile
-source .profile
-#+END_SRC
 * Configuration de l'environnement de développement
 Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
 Le mieux pour faire fonctionner ces configurations est de créer des liens symboliques.
 #+BEGIN_SRC sh
-cd
-git clone git@github.com:IGPRO-27/dotfiles.git
-ln -s dotfiles/emacs.el .emacs.el
-ln -s dotfiles/emacs-custom.el .emacs-custom.el
-ln -s dotfiles/tmux.conf .tmux.conf
+cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles && . install.sh && cd
 #+END_SRC
 * Emacs
 Des url de dépôts de packages ont été ajoutés.
@@ -61,7 +34,9 @@ Des url de dépôts de packages ont été ajoutés.
 	;("autre depot" . "adresse")
 	)))
 #+END_SRC
-** Autres raccourcis utiles
+** Raccourcis utiles
+- Le prefix ~C~ représente la trouche ~Ctrl~.
+- Le prefix ~M~ représente la trouche ~Alt~.
 | Shortcut              | Description                                 |
 |-----------------------+---------------------------------------------|
 | C-x C-f               | find file                                   |
@@ -120,6 +95,20 @@ Des url de dépôts de packages ont été ajoutés.
 | M->                   | end of document                             |
 * Tmux
 - Le prefix ~C-b~ par défaut a été modifié à ~C-q~ qui est plus accessible.
+** Raccourcis utiles
+| Raccourci   | Tmux commande          | Descriptif                                                             |
+|-------------+------------------------+------------------------------------------------------------------------|
+| C-q ?       | list-keys              | affiche l'aide                                                         |
+| C-q c       | new-window             | nouvelle fenêtre                                                       |
+| C-q d       | detach-client          | se détache de tmux mais le laisse rouler                               |
+| C-q /       | split-window -v        | coupe la fenêtre ou le pane courant en 2 verticalement                 |
+| C-q i       | split-window -h        | coupe la fenêtre ou le pane courant en 2 horizontalement               |
+|-------------+------------------------+------------------------------------------------------------------------|
+| C-q Tab     | copy-mode              | entre dans un mode qui permet de remonter dans la sortie du terminal   |
+| C-q y       | paste-buffer           | colle ce qui a été copié pendant le copy-mode                          |
+|-------------+------------------------+------------------------------------------------------------------------|
+| F1          | previous-window        | afficher le panneau précédent                                          |
+| F2          | next-window            | afficher le panneau suivant                                            |
 |-------------+------------------------+------------------------------------------------------------------------|
 | M-Up        | select-pane -U         | déplace le curseur vers le panneau du haut                             |
 | M-Down      | select-pane -D         | déplace le curseur vers le panneau du bas                              |
