@@ -105,7 +105,7 @@
 (savehist-mode		1)
 (ido-mode		t)
 (global-auto-revert-mode t)
-;;(desktop-save-mode      1)
+(desktop-save-mode      1)
 (if (not (server-running-p))  (server-start))
 ;; * VARIABLES
 (setq
@@ -532,3 +532,6 @@
 ;;(setq-default flycheck-temp-prefix ".flycheck")
 ;; Use local eslint
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+(put 'upcase-region 'disabled nil)
+;; CamelCase aware editing
+(add-hook 'prog-mode-hook 'subword-mode)

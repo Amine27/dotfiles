@@ -6,6 +6,9 @@
  '(cua-mode t nil (cua-base))
  '(dired-auto-revert-buffer (quote dired-directory-changed-p))
  '(dired-listing-switches "-alh --group-directories-first ")
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-django elpy-module-sane-defaults)))
  '(global-company-mode t)
  '(highlight-nonselected-windows t)
  '(ido-auto-merge-work-directories-length -1)
