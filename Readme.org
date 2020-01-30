@@ -1,16 +1,3 @@
-* Environnement de la ligne de commande
-Ce dépot contient les fichiers de configuration nécessaires à l'établissement d'un environnement de base.
-Sont concernés :
-- Bash & Git
-  - bash_aliases
-  - git-completion.bash
-- Emacs
-  - emacs-custom.el
-  - emacs.el
-- Tmux
-  - tmux.conf
-- Vim
-  - vimrc
 * Configuration de l'environnement de développement
 Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
 Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot :
@@ -31,23 +18,23 @@ Des url de dépôts de packages ont été ajoutés.
 ** Raccourcis utiles
 - Le prefix ~C~ représente la touche ~Ctrl~ du clavier.
 - Le prefix ~M~ représente la touche ~Alt~ du clavier.
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | Shortcut              | Description                                 |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | C-x C-f               | find file                                   |
 | C-x C-s               | save file                                   |
 | C-x C-f filename      | create new file with filename               |
 | C-x C-f C             | copy file                                   |
 | C-x C-f R             | rename file                                 |
 | C-x C-f D             | delete file                                 |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | C-x 3                 | split window left/right                     |
 | C-x 2                 | split window top/bottom                     |
 | C-x 1                 | unsplit all (remover other window)          |
 | C-x 0                 | remove current window                       |
 | C-x o                 | move cursor to next window                  |
 | C-M-v                 | scroll the text of the next window          |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | M-Del                 | kill the word immediately before the cursor |
 | M-d                   | kill the next word after the cursor         |
 | C-k                   | kill to the end of line                     |
@@ -59,21 +46,21 @@ Des url de dépôts de packages ont été ajoutés.
 | C-w                   | cut                                         |
 | M-x upcase-region     | to upper case marked region                 |
 | C-o                   | insert blanc line                           |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | C-x c-b               | list buffers                                |
 | C-x b                 | switch buffer                               |
 | C-x s                 | save some buffers                           |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | C-h ?                 | help commands                               |
 | C-h r                 | read help                                   |
 | C-h t                 | read tutorial                               |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | C-x C-c               | quit Emacs                                  |
 | C-g                   | abort command                               |
 | M-x recover-this-file | recover current file from #file             |
 | C-s                   | forward search                              |
 | C-r                   | reverse search                              |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 | C-f                   | forward one caracter                        |
 | C-b                   | backward one caracter                       |
 | C-p                   | previous one line                           |
@@ -88,25 +75,25 @@ Des url de dépôts de packages ont été ajoutés.
 | M-v                   | go backward one screen                      |
 | M-<                   | start of document                           |
 | M->                   | end of document                             |
-+-----------------------+---------------------------------------------+
+|-----------------------+---------------------------------------------|
 * Tmux
 - Le prefix ~C-b~ par défaut a été modifié à ~C-q~ qui est plus accessible.
 ** Raccourcis utiles
-+-------------+------------------------+------------------------------------------------------------------------+
+|-------------+------------------------+------------------------------------------------------------------------|
 | Raccourci   | Tmux commande          | Descriptif                                                             |
-+-------------+------------------------+------------------------------------------------------------------------+
+|-------------+------------------------+------------------------------------------------------------------------|
 | C-q ?       | list-keys              | affiche l'aide                                                         |
 | C-q c       | new-window             | nouvelle fenêtre                                                       |
 | C-q d       | detach-client          | se détache de tmux mais le laisse rouler                               |
 | C-q /       | split-window -v        | coupe la fenêtre ou le pane courant en 2 verticalement                 |
 | C-q i       | split-window -h        | coupe la fenêtre ou le pane courant en 2 horizontalement               |
-+-------------+------------------------+------------------------------------------------------------------------+
+|-------------+------------------------+------------------------------------------------------------------------|
 | C-q Tab     | copy-mode              | entre dans un mode qui permet de remonter dans la sortie du terminal   |
 | C-q y       | paste-buffer           | colle ce qui a été copié pendant le copy-mode                          |
-+-------------+------------------------+------------------------------------------------------------------------|
+|-------------+------------------------+------------------------------------------------------------------------|
 | F1          | previous-window        | afficher le panneau précédent                                          |
 | F2          | next-window            | afficher le panneau suivant                                            |
-+-------------+------------------------+------------------------------------------------------------------------+
+|-------------+------------------------+------------------------------------------------------------------------|
 | M-Up        | select-pane -U         | déplace le curseur vers le panneau du haut                             |
 | M-Down      | select-pane -D         | déplace le curseur vers le panneau du bas                              |
 | M-Left      | select-pane -L         | déplace le curseur vers le panneau de gauche                           |
@@ -115,15 +102,15 @@ Des url de dépôts de packages ont été ajoutés.
 | C-q Down    | select-pane -D         |                                                                        |
 | C-q Left    | select-pane -L         |                                                                        |
 | C-q Right   | select-pane -R         |                                                                        |
-+-------------+------------------------+------------------------------------------------------------------------+
+|-------------+------------------------+------------------------------------------------------------------------|
 | C-q b       | choose-window          | liste les fenêtres actives et permet de se déplacer dans l'une d'elles |
 | C-q o       | select-pane -t :.+     | déplace le curseur dans le panneau suivant                             |
 | C-q z       | resize-pane -Z         | zoom le panneau courant                                                |
 | C-q M-o     | rotate-window -D       | inverse les panneaux                                                   |
 | C-q R       | source-file .tmux.conf | Recharge le fichier de configuration sans quitter tmux                 |
-+-------------+------------------------+------------------------------------------------------------------------+
+|-------------+------------------------+------------------------------------------------------------------------|
 | C-q M-Left  | resize-pane -L 5       | agrandit le panneau courant vers la gauche                             |
 | C-q M-Right | resize-pane -R 5       | agrandit le panneau courant vers la droite                             |
 | C-q M-Up    | resize-pane -U         | agrandit le panneau courant vers la haut                               |
 | C-q M-Down  | resize-pane -D         | agrandit le panneau courant vers la bas                                |
-+-------------+------------------------+------------------------------------------------------------------------+
+--------------+------------------------+------------------------------------------------------------------------|
