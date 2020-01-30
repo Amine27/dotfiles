@@ -113,4 +113,4 @@ Des url de dépôts de packages ont été ajoutés.
 | C-q M-Right | resize-pane -R 5       | agrandit le panneau courant vers la droite                             |
 | C-q M-Up    | resize-pane -U         | agrandit le panneau courant vers la haut                               |
 | C-q M-Down  | resize-pane -D         | agrandit le panneau courant vers la bas                                |
---------------+------------------------+------------------------------------------------------------------------|
+|-------------+------------------------+------------------------------------------------------------------------|
