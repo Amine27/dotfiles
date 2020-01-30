@@ -1,23 +1,13 @@
-* Configuration de l'environnement de développement
-Le dépôt contient les fichiers de configrations de l'éditeur ~emacs~ et du multiplexeur ~tmux~.
-Ces fichiers peuvent être installés pour l'utilisateur courant avec le script ~install.sh~ contenu dans le dépot :
+* dotfiles installation
+This repository contains the configuration files for the ~emacs~ editor and the ~tmux~ multiplexer.
+These files can be installed for the current user with the ~install.sh~ script contained in the repository:
 #+BEGIN_SRC sh
 cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles && . install.sh && cd
 #+END_SRC
 * Emacs
-Des url de dépôts de packages ont été ajoutés.
-#+BEGIN_SRC emacs-lisp
-(setq package-archives
-      (quote
-       (("gnu" . "http://elpa.gnu.org/packages/")
-	("marmalade" . "http://marmalade-repo.org/packages/")
-	("melpa" . "http://melpa.milkbox.net/packages/")
-	;("autre depot" . "adresse")
-	)))
-#+END_SRC
-** Raccourcis utiles
-- Le prefix ~C~ représente la touche ~Ctrl~ du clavier.
-- Le prefix ~M~ représente la touche ~Alt~ du clavier.
+- The prefix ~C~ represents the ~Ctrl~ key on the keyboard.
+- The prefix ~M~ represents the ~Alt~ key on the keyboard.
+** Shortcuts
 |-----------------------+---------------------------------------------|
 | Shortcut              | Description                                 |
 |-----------------------+---------------------------------------------|
@@ -77,10 +67,10 @@ Des url de dépôts de packages ont été ajoutés.
 | M->                   | end of document                             |
 |-----------------------+---------------------------------------------|
 * Tmux
-- Le prefix ~C-b~ par défaut a été modifié à ~C-q~ qui est plus accessible.
-** Raccourcis utiles
+- The default ~C-b~ prefix has been changed to ~C-q~ which is more accessible.
+** Shortcuts
 |-------------+------------------------+------------------------------------------------------------------------|
-| Raccourci   | Tmux commande          | Descriptif                                                             |
+| Shortcut    | Tmux command           | Descriptive                                                            |
 |-------------+------------------------+------------------------------------------------------------------------|
 | C-q ?       | list-keys              | affiche l'aide                                                         |
 | C-q c       | new-window             | nouvelle fenêtre                                                       |
