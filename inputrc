@@ -30,3 +30,9 @@ set visible-stats on
 "\C-xf": "emacsclient -a \"\" -t -e \"(find-file \\".\\")\"\n"
 "\C-xk": "emacsclient -e \"(kill-emacs)\"\n"
 "\C-xt": "tmux a || tmux\n"
+
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
