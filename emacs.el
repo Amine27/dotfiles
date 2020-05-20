@@ -17,6 +17,7 @@
 	;;color-theme
 	company
         company-tern
+        company-jedi
 	concurrent
 	ctable
 	dash
@@ -32,8 +33,8 @@
 	;;highlight-current-line
 	highlight-indentation
 	ivy
-	jedi
-	jedi-core
+	;;jedi
+	;;jedi-core
 	magit
 	magit-popup
 	popup
@@ -79,8 +80,11 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 (elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;;(add-hook 'python-mode-hook 'jedi:setup)
+;;(setq jedi:complete-on-dot t)
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 ;; (global-highlight-changes-mode t) ;; http://www.emacswiki.org/emacs/tmux_for_collaborative_editing
 (ffap-bindings)
 (recentf-mode		1)
@@ -278,7 +282,9 @@
   (kill-buffer tokill))
 (global-set-key			(kbd "C-x C-j")	'dired-jump-and-kill)
 
+;; when invoked do not ask confirmation from user
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 ;; * org-capture
 (require 'org-protocol)
 (setq org-capture-templates
@@ -336,8 +342,14 @@
 (add-hook 'js2-mode-hook (lambda ()
                            (tern-mode)
                            (company-mode)))
+;; the server won’t write a .tern-port file
+;(setq tern-command (append tern-command '("--no-port-file")))
+
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
+
+;; prevent company from downcase completion
+(setq company-dabbrev-downcase nil)
 
 ;; chnage pug's indentation to 2 spaces
 (setq pug-tab-width 2)
@@ -380,7 +392,6 @@
 ;;(setq-default flycheck-temp-prefix ".flycheck")
 ;; Use local eslint
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
-(put 'upcase-region 'disabled nil)
 ;; CamelCase aware editing
 (add-hook 'prog-mode-hook 'subword-mode)
 ;; doom-modeline
