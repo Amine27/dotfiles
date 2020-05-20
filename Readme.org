@@ -33,8 +33,10 @@ cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles &&
 | C-x h                 | select all                                  |
 | C-Space               | mark region                                 |
 | C-/, C-x u, C-_       | undo                                        |
-| C-w                   | cut                                         |
-| M-x upcase-region     | to upper case marked region                 |
+| C-w                   | cut marked text                             |
+| M-w                   | copy marked text                            |
+| C-x c-u               | to upper case marked region                 |
+| C-x c-l               | to lower case marked region                 |
 | C-o                   | insert blanc line                           |
 |-----------------------+---------------------------------------------|
 | C-x c-b               | list buffers                                |
