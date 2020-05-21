@@ -85,6 +85,20 @@
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi))
 (add-hook 'python-mode-hook 'my/python-mode-hook)
+;; add mypy to flycheck, at the same time as pylint
+(flycheck-define-checker
+    python-mypy ""
+    :command ("mypy"
+              "--ignore-missing-imports"
+              "--python-version" "3.6"
+              source-original)
+    :error-patterns
+    ((error line-start (file-name) ":" line ": error:" (message) line-end))
+    :modes python-mode)
+
+(add-to-list 'flycheck-checkers 'python-mypy t)
+(flycheck-add-next-checker 'python-pylint 'python-mypy t)
+
 ;; (global-highlight-changes-mode t) ;; http://www.emacswiki.org/emacs/tmux_for_collaborative_editing
 (ffap-bindings)
 (recentf-mode		1)
