@@ -91,6 +91,7 @@
     :command ("mypy"
               "--ignore-missing-imports"
               "--python-version" "3.6"
+              "--cache-dir" "/tmp/.mypy_cache"
               source-original)
     :error-patterns
     ((error line-start (file-name) ":" line ": error:" (message) line-end))
