@@ -1,3 +1,4 @@
+alias takeover="tmux detach -a"
 alias tmux="tmux -2"
 alias ta="tmux attach"
 alias tt="tmux"
