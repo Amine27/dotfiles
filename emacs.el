@@ -74,6 +74,7 @@
 (require 'cl)
 (require 'calc)
 (require 'saveplace)
+(require 'flycheck)
 
 (load-library	"server")
 (load-library	"savehist")
@@ -397,9 +398,7 @@
                                         root))))
     (when (and eslint (file-executable-p eslint))
       (setq-local flycheck-javascript-eslint-executable eslint))))
-;; use web-mode for .jsx files
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-;;(require 'flycheck)
+
 ;; enable flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; disable jshint since we prefer eslint checking
@@ -424,3 +423,5 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;; use web-mode for .jsx files
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))

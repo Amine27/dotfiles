@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
     ("99ea831ca79a916f1bd789de366b639d09811501e8c092c85b2cb7d697777f93" default)))
@@ -40,7 +41,7 @@
  '(org-src-window-setup (quote current-window))
  '(package-selected-packages
    (quote
-    (company-php php-mode company-jedi company-tern company-ansible company-web pug-mode sass-mode django-mode moe-theme neotree yaml-mode w3m python-mode magit jedi git-commit epc elpy dockerfile-mode docker-api docker dash ctable concurrent company color-theme auto-complete async)))
+    (company-jedi php-mode company-tern company-ansible company-web pug-mode sass-mode django-mode moe-theme neotree yaml-mode w3m python-mode magit jedi git-commit epc elpy dockerfile-mode docker-api docker dash ctable concurrent company color-theme auto-complete async)))
  '(read-mail-command (quote gnus))
  '(recentf-auto-cleanup (quote never))
  '(safe-local-variable-values (quote ((org-export-babel-evaluate . t))))
