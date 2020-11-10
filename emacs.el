@@ -18,6 +18,7 @@
 	company
         company-tern
         company-jedi
+        company-php
 	concurrent
 	ctable
 	dash
@@ -55,6 +56,8 @@
         doom-modeline
         htmlize
         org-preview-html
+        php-mode
+        web-mode
 	))
 (package-initialize)
 
@@ -410,5 +413,14 @@
 ;; CamelCase aware editing
 (add-hook 'prog-mode-hook 'subword-mode)
 ;; doom-modeline
-(require 'doom-modeline)
-(doom-modeline-mode 1)
+;;(require 'doom-modeline)
+;;(doom-modeline-mode 1)
+;; web-mode
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
