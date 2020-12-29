@@ -290,6 +290,9 @@
 ;; (define-key w3m-mode-map	"k"		'previous-line)
 ;; (define-key w3m-mode-map	"j"		'next-line)
 
+;; comment/uncomment current line
+(global-set-key (kbd "C-x C-l") 'comment-line)
+
 (add-hook 'term-mode-hook
               '(lambda ()
                  (term-set-escape-char ?\C-x)))
