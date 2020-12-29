@@ -291,7 +291,7 @@
 ;; (define-key w3m-mode-map	"j"		'next-line)
 
 ;; comment/uncomment current line
-(global-set-key (kbd "C-x C-l") 'comment-line)
+(global-set-key (kbd "C-x :") 'comment-line)
 
 (add-hook 'term-mode-hook
               '(lambda ()

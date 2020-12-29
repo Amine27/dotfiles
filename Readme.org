@@ -35,6 +35,7 @@ cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles &&
 | C-/, C-x u, C-_       | undo                                        |
 | C-w                   | cut marked text                             |
 | M-w                   | copy marked text                            |
+| C-x /                 | comment / uncomment current line            |
 | C-x c-u               | to upper case marked region                 |
 | C-x c-l               | to lower case marked region                 |
 | C-o                   | insert blanc line                           |
