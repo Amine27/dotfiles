@@ -16,7 +16,6 @@
 	;;auto-complete
 	;;color-theme
 	company
-        company-tern
         company-jedi
         company-php
 	concurrent
@@ -58,6 +57,9 @@
         org-preview-html
         php-mode
         web-mode
+        json-mode
+        lsp-mode
+        lsp-ui
 	))
 (package-initialize)
 
@@ -75,6 +77,7 @@
 (require 'calc)
 (require 'saveplace)
 (require 'flycheck)
+(require 'lsp-mode)
 
 (load-library	"server")
 (load-library	"savehist")
@@ -360,12 +363,8 @@
 
 ;; use company-mode in all buffers
 (add-hook 'after-init-hook 'global-company-mode)
-(add-to-list 'company-backends 'company-tern)
 (add-hook 'js2-mode-hook (lambda ()
-                           (tern-mode)
                            (company-mode)))
-;; the server won’t write a .tern-port file
-;(setq tern-command (append tern-command '("--no-port-file")))
 
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 2)
@@ -428,3 +427,7 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 ;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+;; enable lsp for all programming lang
+(add-hook 'prog-mode-hook #'lsp)
+;; allows to see matching pairs of parentheses
+(show-paren-mode 1)

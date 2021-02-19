@@ -3,7 +3,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
     ("99ea831ca79a916f1bd789de366b639d09811501e8c092c85b2cb7d697777f93" default)))
@@ -56,9 +55,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(hl-line ((t (:background "brightyellow"))))
+ '(hl-line ((((class color) (min-colors 89)) (:background "#3a3a3a"))))
  '(isearch-fail ((t (:background "red4"))))
- '(org-block ((t (:inherit shadow))))
- '(org-block-background ((t (:background "color-255"))))
- '(org-block-begin-line ((t (:inherit org-meta-line))))
- '(org-block-end-line ((t (:inherit org-meta-line)))))
+ '(org-block ((((class color) (min-colors 89)) (:foreground "#5fafd7" :background "#3a3a3a"))))
+ '(org-block-background ((((class color) (min-colors 89)) (:foreground nil :background "#3a3a3a"))))
+ '(org-block-begin-line ((((class color) (min-colors 89)) (:foreground "#eeeeee" :background "#005f87"))))
+ '(org-block-end-line ((((class color) (min-colors 89)) (:foreground "#4e4e4e" :background "#3a3a3a")))))
