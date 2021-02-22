@@ -13,8 +13,6 @@
 (setq package-list
       '(
 	async
-	;;auto-complete
-	;;color-theme
 	company
         company-jedi
         company-php
@@ -30,11 +28,10 @@
 	epc
 	find-file-in-project
 	git-commit
-	;;highlight-current-line
 	highlight-indentation
-	ivy
-	;;jedi
-	;;jedi-core
+        counsel
+        prescient
+        ivy-prescient
 	magit
 	magit-popup
 	popup
@@ -52,14 +49,18 @@
         pug-mode
         flycheck
         js2-mode
-        doom-modeline
         htmlize
         org-preview-html
         php-mode
         web-mode
         json-mode
+        yaml-mode
         lsp-mode
         lsp-ui
+        lsp-ivy
+        projectile
+        which-key
+        smart-mode-line
 	))
 (package-initialize)
 
@@ -87,8 +88,6 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 (elpy-enable) ;http://elpy.readthedocs.org/en/latest/introduction.html
-;;(add-hook 'python-mode-hook 'jedi:setup)
-;;(setq jedi:complete-on-dot t)
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi))
 (add-hook 'python-mode-hook 'my/python-mode-hook)
@@ -107,16 +106,18 @@
 (add-to-list 'flycheck-checkers 'python-mypy t)
 (flycheck-add-next-checker 'python-pylint 'python-mypy t)
 
-;; (global-highlight-changes-mode t) ;; http://www.emacswiki.org/emacs/tmux_for_collaborative_editing
 (ffap-bindings)
 (recentf-mode		1)
 (delete-selection-mode	1)
 ;(tool-bar-mode		0)
 (menu-bar-mode		0)
 (savehist-mode		1)
-(ido-mode		t)
 (global-auto-revert-mode t)
 ;; (desktop-save-mode      1)
+(ivy-mode               1)
+(ivy-prescient-mode     t)
+(projectile-mode       +1)
+
 (if (not (server-running-p))  (server-start))
 ;; * VARIABLES
 (setq
@@ -177,121 +178,6 @@
       )
 ;; * HOOKS
 (add-hook 'before-save-hook			'delete-trailing-whitespace)
-;; * FONCTIONS
-;; ** dos2unix
-;; C-x C-m f
-(defun dos2unix ()
-  "Not exactly but it's easier to remember"
-  (interactive)
-  (set-buffer-file-coding-system 'unix 't) )
-
-;; ** find-file-as-root
-(defun find-file-as-root ()
-  "Open the current open file via tramp and the /su:: or /sudo:: protocol"
-  (interactive)
-  (let ((running-ubuntu
-	 (and (executable-find "lsb_release")
-	      (string= (car (split-string (shell-command-to-string "lsb_release -ds"))) "Ubuntu"))))
-    (find-file (concat (if running-ubuntu "/sudo::" "/su::") (buffer-file-name)))))
-
-;; ** w3m-open-this-buffer
-(defun w3m-open-this-buffer ()
-  "Show this buffer in w3m"
-  (interactive)
-  (w3m-find-file (buffer-file-name)))
-
-;; ** google-search
-(defun google-search ()
-  "Do a Google search of the symbol at the point"
-  (interactive)
-  (with-current-buffer (buffer-name)
-    (switch-to-buffer-other-window
-     (w3m-browse-url (concat "http://www.google.fr/search?q="
-			     (if (region-active-p)
-	    (buffer-substring-no-properties (region-beginning) (region-end))
-	  (word-at-point)
-	  )
-;; (thing-at-point 'symbol)
-)))
-    (xsteve-flip-windows)
-    (deactivate-mark)))
-
-;; ** synonymes-search
-(defun synonymes-search ()
-  "Do a synonymes search of the symbol at the point"
-  (interactive)
-  (with-current-buffer (buffer-name)
-    (switch-to-buffer-other-window
-     (w3m-browse-url (concat "http://www.linternaute.com/dictionnaire/fr/definition/"
-			     (thing-at-point 'symbol) "/")))
-    (xsteve-flip-windows)))
-
-;; ** xsteve-flip-windows
-(defun xsteve-flip-windows ()
-  (interactive)
-  (let ((cur-buffer (current-buffer))
-	(top-buffer)
-	(bottom-buffer))
-    (pop-to-buffer (window-buffer (frame-first-window)))
-    (setq top-buffer (current-buffer))
-    (other-window 1)
-    (setq bottom-buffer (current-buffer))
-    (switch-to-buffer top-buffer)
-    (other-window -1)
-    (switch-to-buffer bottom-buffer)
-    (pop-to-buffer cur-buffer)))
-
-;; * KEYS
-;; (global-set-key			(kbd "C-c <up>")	'maximize-window)
-;; (global-set-key			(kbd "C-c <down>")	'minimize-window)
-;; (global-set-key			(kbd "C-c <right>")	'balance-windows)
-;; (global-set-key			(kbd "C-x C-b")		'ibuffer)
-;; (global-set-key			(kbd "C-x C-f")		'find-file)
-;;(global-set-key			(kbd "C-x f")		'find-file-as-root)
-;;(global-set-key			(kbd "C-x C-f")		'set-fill-column)
-;;(global-set-key			(kbd "C-x t")		'multi-term)
-;;(global-set-key			(kbd "C-x l")		'copy-location-to-clip)
-;; (global-set-key			(kbd "M-a")		'dabbrev-expand)
-;; (global-set-key			(kbd "C-x r M-%")	'my-replace-string-rectangle)
-;; (global-set-key			(kbd "C-x r C-M-%")	'my-replace-regexp-rectangle)
-
-;; (global-set-key			[f7]			'recentf-open-files)
-;; (global-set-key			"\M-[1;5C"		'forward-word)   ;  Ctrl+right->forward word
-;; (global-set-key			"\M-[1;5D"		'backward-word)  ;  Ctrl+left-> backward word
-;; (global-set-key			"\C-cu"			'browse-url)
-;; (global-set-key			"\C-cg"			'browse-url-at-point)
-;; (global-set-key			"\C-cl"			'goto-line)
-;; (global-set-key			"\C-xœ"			'delete-window)
-;; (global-set-key			"\C-x&"			'delete-other-windows)
-;; (global-set-key			"\C-xé"			'split-window-below)
-;; (global-set-key			"\C-x\""		'split-window-right)
-
-;; (define-key global-map		"\C-z"			'undo)
-;; (define-key global-map		"\C-v"			'scroll-other-window)
-;; (define-key global-map		"\C-o"			'other-window)
-;; (define-key global-map		"\C-cx"			'xsteve-flip-windows)
-;; (define-key global-map		"\C-cw"			'google-search)
-;; (define-key global-map		"\C-cs"			'synonymes-search)
-;; (define-key global-map		"\C-cb"			'display-buffer)
-;; (define-key global-map		"\C-cn"			'find-file-other-window)
-
-;; (define-key dired-mode-map	(kbd "C-p")		'dired-omit-mode)
-;; (define-key dired-mode-map	(kbd "C-o")		'other-window)
-;; (define-key dired-mode-map	(kbd "<return>")	'dired-find-alternate-file) ; was dired-advertised-find-file
-;; (define-key dired-mode-map	(kbd "^")		(lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
-
-
-;; (define-key help-mode-map	"j"		'next-line)
-;; (define-key help-mode-map	"k"		'previous-line)
-;; (define-key help-mode-map	"l"		'right-char)
-;; (define-key help-mode-map	"h"		'left-char)
-
-;; (define-key w3m-mode-map	"\C-dt"		'google-translate-at-point)
-;; (define-key w3m-mode-map	"\C-ddt"	'google-translate-at-point-reverse)
-;; (define-key w3m-mode-map	"\M-p"		'w3m-previous-buffer)
-;; (define-key w3m-mode-map	"\M-n"		'w3m-next-buffer)
-;; (define-key w3m-mode-map	"k"		'previous-line)
-;; (define-key w3m-mode-map	"j"		'next-line)
 
 ;; comment/uncomment current line
 (global-set-key (kbd "C-x :") 'comment-line)
@@ -299,13 +185,6 @@
 (add-hook 'term-mode-hook
               '(lambda ()
                  (term-set-escape-char ?\C-x)))
-;; * dired jump
-(defun dired-jump-and-kill()
-  (interactive)
-  (setq tokill (current-buffer))
-  (dired-jump)
-  (kill-buffer tokill))
-(global-set-key			(kbd "C-x C-j")	'dired-jump-and-kill)
 
 ;; when invoked do not ask confirmation from user
 (put 'downcase-region 'disabled nil)
@@ -324,7 +203,7 @@
 	 )
 	;;       "* %c%?\nSource: %u, %l\n%i")
 	;; other templates
-	        ))
+	))
 
 ;; * Load a user file if any
 ;, Will search for a file in home called $USER.el and loads it
@@ -334,23 +213,40 @@
   (if (file-exists-p custom-user-file)
       (load custom-user-file)))
 
+;; Ivy-based interface to standard commands
+(global-set-key (kbd "C-s") 'swiper-isearch)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(global-set-key (kbd "<f2> j") 'counsel-set-variable)
+(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+(global-set-key (kbd "C-c v") 'ivy-push-view)
+(global-set-key (kbd "C-c V") 'ivy-pop-view)
 
-;; * disable electric-indent in rst-mode
-;; http://emacs.stackexchange.com/a/14053/13367
-(defun my-rst-mode-hook ()
-  (electric-indent-local-mode -1))
-(add-hook 'rst-mode-hook #'my-rst-mode-hook)
+;; Projectile keymap prefixes
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; Moe-theme color schems
 (require 'moe-theme)
+(setq moe-theme-mode-line-color 'nil)
 (moe-dark)
 
-;; set transparency background
+;; set transparency background for emacsclient
 (defun on-frame-open (frame)
   (if (not (display-graphic-p frame))
       (set-face-background 'default "unspecified-bg" frame)))
 (on-frame-open (selected-frame))
 (add-hook 'after-make-frame-functions 'on-frame-open)
+;; set transparency background for emacs
+(defun on-after-init ()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
+(add-hook 'window-setup-hook 'on-after-init)
 
 ;; highlight current line
 (global-hl-line-mode 1)
@@ -413,9 +309,6 @@
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 ;; CamelCase aware editing
 (add-hook 'prog-mode-hook 'subword-mode)
-;; doom-modeline
-;;(require 'doom-modeline)
-;;(doom-modeline-mode 1)
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -431,3 +324,19 @@
 (add-hook 'prog-mode-hook #'lsp)
 ;; allows to see matching pairs of parentheses
 (show-paren-mode 1)
+(setq show-paren-style 'expression)
+;; insert matching delimiters for programming lang
+(add-hook 'prog-mode-hook 'electric-pair-mode)
+;; insert newlines for programming lang
+(add-hook 'prog-mode-hook 'electric-layout-mode)
+;; ivy mode customization
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+;; enable which key
+(which-key-mode)
+;; lsp-mode integration
+(with-eval-after-load 'lsp-mode
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+;; activate smart-mode-line
+(setq sml/theme 'dark)
+(sml/setup)
