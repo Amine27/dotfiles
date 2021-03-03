@@ -86,6 +86,7 @@ cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles &&
 |-------------+------------------------+------------------------------------------------------------------------|
 | F1          | previous-window        | afficher le panneau précédent                                          |
 | F2          | next-window            | afficher le panneau suivant                                            |
+| C-q l       | last-window            | go to previous window                                                  |
 |-------------+------------------------+------------------------------------------------------------------------|
 | M-Up        | select-pane -U         | déplace le curseur vers le panneau du haut                             |
 | M-Down      | select-pane -D         | déplace le curseur vers le panneau du bas                              |

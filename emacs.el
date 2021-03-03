@@ -61,6 +61,7 @@
         projectile
         which-key
         smart-mode-line
+        smartparens
 	))
 (package-initialize)
 
@@ -79,6 +80,7 @@
 (require 'saveplace)
 (require 'flycheck)
 (require 'lsp-mode)
+(require 'smartparens-config)
 
 (load-library	"server")
 (load-library	"savehist")
@@ -325,10 +327,6 @@
 ;; allows to see matching pairs of parentheses
 (show-paren-mode 1)
 (setq show-paren-style 'expression)
-;; insert matching delimiters for programming lang
-(add-hook 'prog-mode-hook 'electric-pair-mode)
-;; insert newlines for programming lang
-(add-hook 'prog-mode-hook 'electric-layout-mode)
 ;; ivy mode customization
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
@@ -337,6 +335,11 @@
 ;; lsp-mode integration
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+;; increase performance of lsp-mode
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
 ;; activate smart-mode-line
 (setq sml/theme 'dark)
 (sml/setup)
+;; insert matching delimiters for programming lang
+(add-hook 'prog-mode-hook #'smartparens-mode)
