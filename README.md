@@ -16,12 +16,12 @@ sudo gem install tmuxinator
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install jethrokuan/z mattgreen/lucid.fish
 # Doom Emacs
-git clone --depth 1 https://github.com/hlissner/doom-emacs `/.emacs.d
-`/.emacs.d/bin/doom sync
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom sync
 ```
 
 ## Fish shell
-`fish` shell is only enabled in `tmux` for now.
+- `fish` shell is only enabled in `tmux` for now.
 
 ## Emacs
 - The prefix `C` represents the `Ctrl` key on the keyboard.
