@@ -10,7 +10,7 @@ for file in $homeconfig; do
     destination=$file
     # Custom folder for doom and fish
     if [ $source == "doom/" ]; then
-        destination="doom.d/"
+        destination="doom.d"
     elif [ $source == "fish/" ]; then
         destination="config/fish"
     fi

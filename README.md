@@ -1,5 +1,5 @@
 ## `dotfiles` installation
-This repository contains the configuration files for the `emacs` editor, `fisher` shell and the `tmux` multiplexer.
+This repository contains the configuration files for the `emacs` editor, `fish` shell and the `tmux` multiplexer.
 These files can be installed for the current user with the `install.sh` script contained in the repository:
 ``` sh
 cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles && . install.sh && cd
