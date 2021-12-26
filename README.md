@@ -1,11 +1,11 @@
-* `dotfiles` installation
+## `dotfiles` installation
 This repository contains the configuration files for the `emacs` editor, `fisher` shell and the `tmux` multiplexer.
 These files can be installed for the current user with the `install.sh` script contained in the repository:
 ``` sh
 cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles && . install.sh && cd
 ```
 
-* Required packages:
+## Required packages:
 ``` sh
 # Emacs new version ppa
 sudo add-apt-repository ppa:kelleyk/emacs
@@ -20,13 +20,15 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs `/.emacs.d
 `/.emacs.d/bin/doom sync
 ```
 
-* Fish shell
+## Fish shell
 `fish` shell is only enabled in `tmux` for now.
 
-* Emacs
+## Emacs
 - The prefix `C` represents the `Ctrl` key on the keyboard.
 - The prefix `M` represents the `Alt` key on the keyboard.
-** Shortcuts
+
+<details>
+  <summary>Shortcuts</summary>
 
 | Shortcut              | Description                                 |
 | --------------------- | ------------------------------------------- |
@@ -82,10 +84,13 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs `/.emacs.d
 | M-<                   | start of document                           |
 | M->                   | end of document                             |
 
-* Tmux
+</details>
+
+## Tmux
 - The default `C-b` prefix has been changed to `C-q` which is more accessible.
 
-** Shortcuts
+<details>
+  <summary>Shortcuts</summary>
 
 | Shortcut    | Tmux command           | Descriptive                                                            |
 |-------------|------------------------|------------------------------------------------------------------------|
@@ -116,3 +121,5 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs `/.emacs.d
 | C-q M-Right | resize-pane -R 5       | agrandit le panneau courant vers la droite                             |
 | C-q M-Up    | resize-pane -U         | agrandit le panneau courant vers la haut                               |
 | C-q M-Down  | resize-pane -D         | agrandit le panneau courant vers la bas                                |
+
+</details>
