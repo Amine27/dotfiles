@@ -12,7 +12,7 @@ sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt install fish tmux emacs27-nox
 sudo gem install tmuxinator
 # Download and install Git delta from: https://github.com/dandavison/delta/releases
-# Fisher
+# Fisher (from fish shell)
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install jethrokuan/z mattgreen/lucid.fish
 # Doom Emacs
