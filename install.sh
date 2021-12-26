@@ -1,43 +1,48 @@
 #!/bin/bash
 
 current_dir=$PWD;
-homeconfig="$(ls -F | grep -v / | egrep -iv \(bin\|install\|readme\|profile\))";
+homeconfig="$(ls -F | grep -Eiv \(bin\|install\|readme\|profile\|gitemplates\))";
 
-# Crée un lien symbolique des fichiers de configuration vers le
-# contenu de ce dossier
+# Create a symbolic link of the configuration files to the contents of this folder
 
-for fichier in $homeconfig; do
-    if [ ! -f $HOME/.$fichier ] ; then
-	ln -s $current_dir/$fichier $HOME/.$fichier
-	echo "~/.$fichier a été créé"
+for file in $homeconfig; do
+    source=$file
+    destination=$file
+    # Custom folder for doom and fish
+    if [ $source == "doom/" ]; then
+        destination="doom.d/"
+    elif [ $source == "fish/" ]; then
+        destination="config/fish"
+    fi
+
+    if [ ! -f $HOME/.$destination ] ; then
+        # ln -s $current_dir/$source $HOME/.$destination
+        echo "~/.$destination has been created"
     else
-	echo "~/.$fichier exist déjà"
+        echo "~/.$destination already exists"
     fi
 done
 
-# S'assure que le fichier $HOME/.profile n'est pas un lien
-# Si oui le remplacer par le template système
+# Make sure the $HOME/.profile file is not a link
+# If so, replace it with the system template
 
 if [ -h $HOME/.profile ];then
     rm $HOME/.profile;
     cp /etc/skel/.profile $HOME;
 fi
 
+# Make sure the $HOME/.local/bin folder is in the PATH variable
 
-
-# Le dossier $HOME/.local/bin est utilisé par python-pip
-# S'assurer qu'il est dans la variable PATH
-
-if `grep "HOME/.local/bin" $HOME/.profile >/dev/null 2>&1`; then
-    echo "$HOME/.local/bin est déjà dans le path";
+if $(grep "HOME/.local/bin" "$HOME"/.profile >/dev/null 2>&1); then
+    echo "$HOME/.local/bin is already in path";
 else
-    if [ ! -d $HOME/.local/bin ]; then
-	echo "Création et ajout de ~/.local/bin dans le path";
-	mkdir -p $HOME/.local/bin ;
+    if [ ! -d "$HOME"/.local/bin ]; then
+        echo "Creation and adding of ~/.local/bin in the path";
+        mkdir -p "$HOME"/.local/bin ;
     else
-	echo "Le dossier ~/.local/bin existe déjà. Il va être ajouté au path";
+        echo "The folder ~/.local/bin already exists. It will be added to path";
     fi
-    cat >> $HOME/.profile <<'EOF'
+    cat >> "$HOME"/.profile <<'EOF'
 
 # set PATH so it includes user's .local/bin folder
 if [ -d "$HOME/.local/bin" ] ; then
@@ -47,7 +52,7 @@ fi
 EOF
 fi
 
-if ( ! `grep "fire_tmux.bash" $HOME/.profile >/dev/null 2>&1` ); then
+if ( ! $(grep "fire_tmux.bash" "$HOME"/.profile >/dev/null 2>&1) ); then
     cat >> $HOME/.profile <<EOF
 if [ -f $current_dir/fire_tmux.bash ]; then
     source $current_dir/fire_tmux.bash
@@ -57,9 +62,22 @@ EOF
 fi
 
 
-# Charger les aliases
+# Load bash alias
 source ~/.bash_aliases
 
-# Créer un template dir pour les hooks de git
-
+# Create a dir template for git hooks
 git config --global init.templateDir $current_dir/gitemplates
+# Configure delta for beautiful git diff
+# git config --global core.pager delta
+# git config --global interactive.diffFilter 'delta --color-only --features=interactive'
+# git config --global delta.features decorations
+# git config --global delta.interactive.keep-plus-minus-markers false
+# git config --global delta.syntax-theme gruvbox-white
+# git config --global delta.line-numbers true
+# git config --global delta.decorations.commit-decoration-style 'blue ol'
+# git config --global delta.decorations.commit-style raw
+# git config --global delta.decorations.file-style omit
+# git config --global delta.decorations.hunk-header-decoration-style 'blue box'
+# git config --global delta.decorations.hunk-header-file-style red
+# git config --global delta.decorations.hunk-header-line-number-style "#067a00"
+# git config --global delta.decorations.hunk-header-style "file line-number syntax"
