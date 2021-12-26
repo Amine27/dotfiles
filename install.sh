@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current_dir=$PWD;
-homeconfig="$(ls -F | grep -Eiv \(bin\|install\|readme\|profile\|gitemplates\))";
+homeconfig="$(ls -F --color=auto | grep -Eiv \(bin\|install\|readme\|profile\|gitemplates\))";
 
 # Create a symbolic link of the configuration files to the contents of this folder
 
