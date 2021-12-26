@@ -16,7 +16,7 @@ for file in $homeconfig; do
     fi
 
     if [ ! -f $HOME/.$destination ] ; then
-        # ln -s $current_dir/$source $HOME/.$destination
+        ln -s $current_dir/$source $HOME/.$destination
         echo "~/.$destination has been created"
     else
         echo "~/.$destination already exists"
@@ -68,16 +68,16 @@ source ~/.bash_aliases
 # Create a dir template for git hooks
 git config --global init.templateDir $current_dir/gitemplates
 # Configure delta for beautiful git diff
-# git config --global core.pager delta
-# git config --global interactive.diffFilter 'delta --color-only --features=interactive'
-# git config --global delta.features decorations
-# git config --global delta.interactive.keep-plus-minus-markers false
-# git config --global delta.syntax-theme gruvbox-white
-# git config --global delta.line-numbers true
-# git config --global delta.decorations.commit-decoration-style 'blue ol'
-# git config --global delta.decorations.commit-style raw
-# git config --global delta.decorations.file-style omit
-# git config --global delta.decorations.hunk-header-decoration-style 'blue box'
-# git config --global delta.decorations.hunk-header-file-style red
-# git config --global delta.decorations.hunk-header-line-number-style "#067a00"
-# git config --global delta.decorations.hunk-header-style "file line-number syntax"
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only --features=interactive'
+git config --global delta.features decorations
+git config --global delta.interactive.keep-plus-minus-markers false
+git config --global delta.syntax-theme gruvbox-white
+git config --global delta.line-numbers true
+git config --global delta.decorations.commit-decoration-style 'blue ol'
+git config --global delta.decorations.commit-style raw
+git config --global delta.decorations.file-style omit
+git config --global delta.decorations.hunk-header-decoration-style 'blue box'
+git config --global delta.decorations.hunk-header-file-style red
+git config --global delta.decorations.hunk-header-line-number-style "#067a00"
+git config --global delta.decorations.hunk-header-style "file line-number syntax"
