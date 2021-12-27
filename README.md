@@ -11,14 +11,18 @@ cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles &&
 sudo add-apt-repository ppa:kelleyk/emacs
 # Node.js v16.x LTS
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+# Install required packages
 sudo apt install fish tmux emacs27-nox nodejs
+# Install tmuxinator to manage tmux sessions
 sudo gem install tmuxinator
-# Download and install Git delta from: https://github.com/dandavison/delta/releases
-# Doom Emacs
+# Download and install Git delta
+# apt install git-delta or https://github.com/dandavison/delta/releases
+# Install and configure Doom Emacs with local configuration
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom sync
-# Fisher (from fish shell)
+# Install Fisher package manager (from fish shell)
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+# Install z for easly navigation and lucid prompt theme
 fisher install jethrokuan/z mattgreen/lucid.fish
 ```
 
