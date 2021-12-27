@@ -1,14 +1,5 @@
 #!/bin/bash
-# branchPath=$(git symbolic-ref -q HEAD) #Somthing like refs/heads/myBranchName
-# branchName=${branchPath##*/}      #Get text behind the last / of the branch path
 
-# firstLine=$(head -n1 $1)
-
-# if [ -z "$firstLine"  ] ;then #Check that this is not an amend by checking that the first line is empty
-#     sed -i "1s/^/[$branchName]: \n/" $1 #Insert branch name at the start of the commit message file
-# fi
-# # branch_name="$(git symbolic-ref -q HEAD 2>/dev/null)" || branch_name="(unnamed branch)"     # detached HEAD
-# # echo $branch_name
-BRANCH=`git branch | grep '^\*' | cut -b3-`
-FILE=`cat "$1"`
+BRANCH=$(git branch | grep '^\*' | cut -b3-)
+FILE=$(cat "$1")
 echo "[$BRANCH]: $FILE" > "$1"
