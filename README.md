@@ -7,7 +7,7 @@ cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles &&
 
 ## Required packages:
 ``` sh
-# Emacs new version ppa
+# Emacs new version in Ubuntu
 sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt install fish tmux emacs27-nox
 sudo gem install tmuxinator
