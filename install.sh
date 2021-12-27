@@ -1,17 +1,18 @@
 #!/bin/bash
 
 current_dir=$PWD;
-homeconfig="$(ls -F --color=auto | grep -Eiv \(bin\|install\|readme\|profile\|gitemplates\))";
+homeconfig="$(ls --color=no | grep -Eiv \(bin\|install\|readme\|profile\|gitemplates\))";
 
 # Create a symbolic link of the configuration files to the contents of this folder
 
 for file in $homeconfig; do
     source=$file
     destination=$file
+
     # Custom folder for doom and fish
-    if [ $source == "doom/" ]; then
+    if [ $source == "doom" ]; then
         destination="doom.d"
-    elif [ $source == "fish/" ]; then
+    elif [ $source == "fish" ]; then
         destination="config/fish"
     fi
 

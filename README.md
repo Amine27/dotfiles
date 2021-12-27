@@ -5,19 +5,21 @@ These files can be installed for the current user with the `install.sh` script c
 cd && git clone https://github.com/Amine27/dotfiles .dotfiles && cd .dotfiles && . install.sh && cd
 ```
 
-## Required packages:
+## Setup tools
 ``` sh
 # Emacs new version in Ubuntu
 sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt install fish tmux emacs27-nox
+# Node.js v16.x LTS
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt install fish tmux emacs27-nox nodejs
 sudo gem install tmuxinator
 # Download and install Git delta from: https://github.com/dandavison/delta/releases
-# Fisher (from fish shell)
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install jethrokuan/z mattgreen/lucid.fish
 # Doom Emacs
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom sync
+# Fisher (from fish shell)
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install jethrokuan/z mattgreen/lucid.fish
 ```
 
 ## Fish shell
