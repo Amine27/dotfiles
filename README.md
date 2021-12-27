@@ -15,14 +15,14 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install fish tmux emacs27-nox nodejs
 # Install tmuxinator to manage tmux sessions
 sudo gem install tmuxinator
-# Download and install Git delta
+# Download and install Git delta for nice git diff
 # apt install git-delta or https://github.com/dandavison/delta/releases
-# Install and configure Doom Emacs with local configuration
+# Install and configure Doom Emacs with local configurations
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom sync
-# Install Fisher package manager (from fish shell)
+# Install Fisher package manager (execture within fish shell)
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-# Install z for easly navigation and lucid prompt theme
+# Install z for easy file navigation and lucid prompt theme
 fisher install jethrokuan/z mattgreen/lucid.fish
 ```
 
