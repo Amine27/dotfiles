@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current_dir=$PWD;
-homeconfig="$(ls --color=no | grep -Eiv \(bin\|install\|readme\|profile\|gitemplates\))";
+homeconfig="$(ls --color=no | grep -Eiv \(bin\|install\|readme\|profile\))";
 
 # Create a symbolic link of the configuration files to the contents of this folder
 
@@ -66,8 +66,6 @@ fi
 # Load bash alias
 source ~/.bash_aliases
 
-# Create a dir template for git hooks
-git config --global init.templateDir $current_dir/gitemplates
 # Configure delta for beautiful git diff
 git config --global core.pager delta
 git config --global interactive.diffFilter 'delta --color-only --features=interactive'
